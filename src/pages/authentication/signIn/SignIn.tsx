@@ -2,9 +2,10 @@ import Typography from "@mui/material/Typography";
 import logo from "../../../assets/images/logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
-import { Divider } from "@mui/material";
+import { Divider, TextField } from "@mui/material";
 
 const SignIn = () => {
+
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="flex flex-col-reverse md:flex-row justify-between items-center bg-white rounded-2xl shadow">
@@ -36,19 +37,41 @@ const SignIn = () => {
           </div>
           {/* Social media */}
           <div className="flex justify-center items-center gap-3 mt-5">
-            <button className="flex flex-grow justify-center items-center gap-2 bg-gray-100 py-4 px-8 rounded-lg"><FcGoogle className="size-6" /><Typography variant="body1"><span className="font-semibold">Google</span></Typography></button>
-            <button className="flex flex-grow justify-center items-center gap-2 bg-gray-100 py-4 px-8 rounded-lg"><FaApple className="size-6" /><Typography variant="body1"><span className="font-semibold">Apple</span></Typography></button>
+            <button className="flex flex-grow justify-center items-center gap-2 bg-gray-100 py-4 px-8 rounded-lg">
+              <FcGoogle className="size-6" />
+              <Typography variant="body1">
+                <span className="font-semibold">Google</span>
+              </Typography>
+            </button>
+            <button className="flex flex-grow justify-center items-center gap-2 bg-gray-100 py-4 px-8 rounded-lg">
+              <FaApple className="size-6" />
+              <Typography variant="body1">
+                <span className="font-semibold">Apple</span>
+              </Typography>
+            </button>
           </div>
           {/* Devider */}
           <div className="my-5">
-          <Divider>
-            <Typography variant="caption"><span className="font-semibold text-gray-700">or continue with email</span></Typography>
-          </Divider>
+            <Divider>
+              <Typography variant="caption">
+                <span className="font-semibold text-gray-700">
+                  or continue with email
+                </span>
+              </Typography>
+            </Divider>
           </div>
 
           {/* Main form section */}
           <div>
-            
+            <form>
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Email"
+                variant="outlined"
+                type="email"
+              />
+            </form>
           </div>
         </div>
         <div>
