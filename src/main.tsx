@@ -1,10 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import "./index.css";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import router from "./routes/main.routes.tsx";
+import { RouterProvider } from "react-router-dom";
+import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 
-createRoot(document.getElementById('root')!).render(
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  </StrictMode>
+);
