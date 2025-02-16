@@ -1,0 +1,15 @@
+@keyframes bounce {
+    10%, 32% { transform: translateX(0); } /* Stay in place for 2s */
+    40% { transform: translateX(30px); } /* Move Right */
+    50% { transform: translateX(0); } /* Back to Center */
+    60% { transform: translateX(30px); } /* Move Right Again */
+    70% { transform: translateX(0); } /* Back to Center */
+}
+
+#bounceBtn {
+    animation: bounce 4s ease-in-out infinite;
+}
+
+#bounceBtn:hover {
+    animation-play-state: paused;
+}
