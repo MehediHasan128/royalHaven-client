@@ -1,21 +1,20 @@
 import { useState } from "react";
 import "../../../styles/index.css";
+import { IoHome } from "react-icons/io5";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { IoHome } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { FieldValues } from "react-hook-form";
+import { Button, Divider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import RForm from "../../../components/form/RForm";
 import logo from "../../../assets/images/logo.png";
 import RInput from "../../../components/form/RInput";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import cover from "../../../assets/images/loginCover.jpg";
-import { Button, Checkbox, Divider } from "@mui/material";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
-  const [checked, setChecked] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
 
   const handleSignUp = (data: FieldValues) => {
@@ -23,7 +22,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center bg-white">
+    <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center bg-white sticky top-0">
       {/* Form section */}
       <div className="p-10 md:p-5 lg:px-30 md:w-[60%] lg:w-[35%] mx-auto">
         {/* Logo section */}
@@ -135,48 +134,28 @@ const SignUp = () => {
                 </div>
               </div>
             </div>
-            {/* Remember or forgot pass */}
-            <div className="flex justify-between items-center my-3">
-              <div className="flex items-center">
-                <Checkbox
-                  checked={checked}
-                  onChange={() => setChecked(!checked)}
-                  inputProps={{ "aria-label": "controlled" }}
-                />
-                <Typography variant="body2">
-                  <span className="text-gray-700 font-medium">Remember me</span>
-                </Typography>
-              </div>
-              <div>
-                <Typography variant="body2">
-                  <span className="font-medium text-blue-600 cursor-pointer">
-                    Forgot Password?
-                  </span>
-                </Typography>
-              </div>
-            </div>
             {/* Sign in button */}
-            <div onClick={() => setBtnLoading(!btnLoading)}>
+            <div className="my-8" onClick={() => setBtnLoading(!btnLoading)}>
               <Button
                 loading={btnLoading}
                 fullWidth
                 size="large"
                 variant="contained"
               >
-                Sign In
+                Sign Up
               </Button>
             </div>
           </RForm>
         </div>
 
         {/* Create an account text */}
-        <div className="text-center mt-8">
+        <div className="text-center">
           <Typography variant="body2">
             <span className="font-medium">
-              Don't have an account?{" "}
-              <NavLink to="/signup">
+              Already have an account?{" "}
+              <NavLink to="/signin">
                 <span className="font-semibold text-blue-600">
-                  Create an account
+                  SignIn
                 </span>
               </NavLink>
             </span>
