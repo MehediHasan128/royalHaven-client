@@ -1,17 +1,17 @@
-import Typography from "@mui/material/Typography";
-import logo from "../../../assets/images/logo.png";
-import cover from "../../../assets/images/loginCover.jpg";
-import { FcGoogle } from "react-icons/fc";
-import { FaApple } from "react-icons/fa";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { IoHome  } from "react-icons/io5";
-import { Button, Checkbox, Divider } from "@mui/material";
-import { FieldValues } from "react-hook-form";
-import RForm from "../../../components/form/RForm";
-import RInput from "../../../components/form/RInput";
 import { useState } from "react";
 import "../../../styles/index.css";
+import { FaApple } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { IoHome  } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import { FieldValues } from "react-hook-form";
+import Typography from "@mui/material/Typography";
+import RForm from "../../../components/form/RForm";
+import logo from "../../../assets/images/logo.png";
+import RInput from "../../../components/form/RInput";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import cover from "../../../assets/images/loginCover.jpg";
+import { Button, Checkbox, Divider } from "@mui/material";
 
 const SignIn = () => {
   const [showPass, setShowPass] = useState(false);
@@ -23,9 +23,9 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse md:flex-row justify-between items-center bg-white">
+    <div className="flex flex-col-reverse lg:flex-row justify-between items-center bg-white">
       {/* Form section */}
-      <div className="p-10 md:p-5 lg:p-30 md:w-[50%] lg:w-[35%] mx-auto">
+      <div className="p-10 md:p-5 lg:p-30 md:w-[60%] lg:w-[35%] mx-auto">
         {/* Logo section */}
         <div className="size-28 mx-auto space-y-1">
           {/* image */}
@@ -166,10 +166,10 @@ const SignIn = () => {
         </div>
       </div>
       {/* Content section */}
-      <div className="md:w-[50%] md:h-screen overflow-hidden bg-cover relative">
+      <div className="lg:w-[50%] md:h-screen overflow-hidden bg-cover relative">
         {/* background image */}
         <img
-          className="w-full md:h-full lg:h-auto md:bg-cover"
+          className="w-full lg:h-auto md:bg-cover"
           src={cover}
           alt=""
         />
@@ -178,7 +178,7 @@ const SignIn = () => {
           {/* Contect section */}
           <div className="text-gray-200">
             {/* Heading text */}
-            <div className="w-[95%] lg:w-[70%] mx-auto">
+            <div className="w-[95%] md:w-[80%] lg:w-[70%] mx-auto">
               <Typography variant="h2">
                 <span className="font-semibold">Welcome to <span className="bg-gradient-to-r from-[#a0d3f8] to-[#1b9cf8] bg-clip-text text-transparent">Royal Haven</span></span>
               </Typography>
