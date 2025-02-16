@@ -22,7 +22,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center bg-white sticky top-0">
+    <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center bg-white">
       {/* Form section */}
       <div className="p-10 md:p-5 lg:px-30 md:w-[60%] lg:w-[35%] mx-auto">
         {/* Logo section */}
