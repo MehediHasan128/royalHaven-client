@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../../styles/index.css";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { IoHome  } from "react-icons/io5";
+import { IoHome } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { FieldValues } from "react-hook-form";
 import Typography from "@mui/material/Typography";
@@ -13,17 +13,17 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import cover from "../../../assets/images/loginCover.jpg";
 import { Button, Checkbox, Divider } from "@mui/material";
 
-const SignIn = () => {
+const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
   const [checked, setChecked] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
 
-  const handleLogin = (data: FieldValues) => {
+  const handleSignUp = (data: FieldValues) => {
     console.log(data);
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row justify-between items-center bg-white">
+    <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center bg-white">
       {/* Form section */}
       <div className="p-10 md:p-5 lg:px-30 md:w-[60%] lg:w-[35%] mx-auto">
         {/* Logo section */}
@@ -44,11 +44,11 @@ const SignIn = () => {
         {/* Login Text */}
         <div className="my-5">
           <Typography variant="h4">
-            <span className="font-semibold">Sign in to your Account</span>
+            <span className="font-semibold">Sign up your Account</span>
           </Typography>
           <Typography variant="caption">
             <span className="text-gray-600">
-              Welcome to Royal Haven! Choese your sign in method:
+              Welcome to Royal Haven! Choese your sign up method:
             </span>
           </Typography>
         </div>
@@ -74,7 +74,7 @@ const SignIn = () => {
           <Divider>
             <Typography variant="caption">
               <span className="font-semibold text-gray-700">
-                or continue with email
+                continue with email or password
               </span>
             </Typography>
           </Divider>
@@ -82,9 +82,25 @@ const SignIn = () => {
 
         {/* Main form section */}
         <div>
-          <RForm onSubmit={handleLogin}>
+          <RForm onSubmit={handleSignUp}>
             {/* Form Input */}
             <div className="space-y-4">
+              <div className="flex justify-center gap-5">
+                <RInput
+                  type="text"
+                  name="firstName"
+                  label="First Name"
+                  variant="outlined"
+                  placeholder="Enter your first name"
+                />
+                <RInput
+                  type="text"
+                  name="lastName"
+                  label="Last Name"
+                  variant="outlined"
+                  placeholder="Enter your last name"
+                />
+              </div>
               <RInput
                 type="email"
                 name="email"
@@ -159,9 +175,9 @@ const SignIn = () => {
             <span className="font-medium">
               Don't have an account?{" "}
               <NavLink to="/signup">
-              <span className="font-semibold text-blue-600">
-                Create an account
-              </span>
+                <span className="font-semibold text-blue-600">
+                  Create an account
+                </span>
               </NavLink>
             </span>
           </Typography>
@@ -170,29 +186,39 @@ const SignIn = () => {
       {/* Content section */}
       <div className="lg:w-[50%] md:h-screen overflow-hidden bg-cover relative">
         {/* background image */}
-        <img
-          className="w-full lg:h-auto md:bg-cover"
-          src={cover}
-          alt=""
-        />
+        <img className="w-full lg:h-auto md:bg-cover" src={cover} alt="" />
         {/* Content container */}
-        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center  bg-gradient-to-b md:bg-gradient-to-l from-black/75 to-black/40">
+        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center  bg-gradient-to-b md:bg-gradient-to-r from-black/75 to-black/40">
           {/* Contect section */}
           <div className="text-gray-200">
             {/* Heading text */}
             <div className="w-[95%] md:w-[90%] lg:w-[70%] mx-auto">
               <Typography variant="h2">
-                <span className="font-semibold">Welcome to <span className="bg-gradient-to-r from-[#a0d3f8] to-[#1b9cf8] bg-clip-text text-transparent">Royal Haven</span></span>
+                <span className="font-semibold">
+                  Welcome to{" "}
+                  <span className="bg-gradient-to-r from-[#a0d3f8] to-[#1b9cf8] bg-clip-text text-transparent">
+                    Royal Haven
+                  </span>
+                </span>
               </Typography>
               <div className="my-4">
-              <Typography variant="h5">
-                <span>Your Gateway to Dream Properties!</span>
-              </Typography>
+                <Typography variant="h5">
+                  <span>Your Gateway to Dream Properties!</span>
+                </Typography>
               </div>
-              <Typography variant="body2" className="text-justify"><span>Find your perfect home or the right buyer with ease. Whether you're investing, selling, or searching for your dream space, we're here to make your journey smooth and rewarding. Log in to access exclusive listings and personalized services.</span></Typography>
+              <Typography variant="body2" className="text-justify">
+                <span>
+                  Find your perfect home or the right buyer with ease. Whether
+                  you're investing, selling, or searching for your dream space,
+                  we're here to make your journey smooth and rewarding. Log in
+                  to access exclusive listings and personalized services.
+                </span>
+              </Typography>
               <div className="mt-4">
                 <Typography variant="h5">
-                  <span className="font-semibold">Your next great property adventure starts here!</span>
+                  <span className="font-semibold">
+                    Your next great property adventure starts here!
+                  </span>
                 </Typography>
               </div>
             </div>
@@ -202,7 +228,10 @@ const SignIn = () => {
         <div className="absolute top-0 p-5 lg:p-10 cursor-pointer text-white">
           <div id="bounceBtn">
             <Typography variant="subtitle1">
-              <NavLink to='/' className="flex justify-center items-center gap-2 font-medium cursor-pointer">
+              <NavLink
+                to="/"
+                className="flex justify-center items-center gap-2 font-medium cursor-pointer"
+              >
                 <span>
                   <IoHome />
                 </span>
@@ -216,4 +245,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
