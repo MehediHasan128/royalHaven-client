@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import logo from "../../../assets/images/logo.png";
+import logo from "../../../assets/images/logo-white.png";
 import * as motion from "motion/react-client";
 import { useState } from "react";
 import SideNavbar from "../../../components/ui/SideNavbar";
@@ -10,12 +10,11 @@ const navItems = ["Home", "Properties", "FAQs", "About Us"];
 const Navbar = () => {
 
   const [sidebar, setSidebar] = useState(false);
-  console.log(sidebar);
 
   return (
     <>
-      <div className="shadow py-5">
-        <div className="w-[95%] mx-auto">
+      <div className="py-5 fixed w-full">
+        <div className="w-[95%] mx-auto text-white">
           <div className="grid lg:grid-cols-3">
             <div className="flex">
               {/* Menubar */}
@@ -28,7 +27,7 @@ const Navbar = () => {
                   <img className="w-7" src={logo} alt="" />
                   <Typography variant="h4">
                     <span
-                      className="font-semibold text-[#176ead]"
+                      className="font-semibold text-white"
                       style={{ fontFamily: '"Great Vibes", serif' }}
                     >
                       Royal Haven

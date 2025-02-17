@@ -13,3 +13,11 @@
 #bounceBtn:hover {
     animation-play-state: paused;
 }
+
+#bannerBackground {
+    background-image: linear-gradient(to bottom, #000000c0, #11111181), url('/src/assets/images/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: 100vh;
+    max-width: 100vw;
+}

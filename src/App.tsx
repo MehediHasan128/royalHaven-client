@@ -2,7 +2,7 @@ import MainLayout from "./components/layout/MainLayout"
 
 function App() {
   return (
-    <div>
+    <div style={{overflowY: "auto", scrollbarWidth: "thin"}}>
       <MainLayout />
     </div>
   )
