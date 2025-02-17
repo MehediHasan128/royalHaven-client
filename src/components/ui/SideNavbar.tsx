@@ -6,6 +6,8 @@ import List from "@mui/material/List";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { IoHomeOutline } from "react-icons/io5";
 import { FaQuestion } from "react-icons/fa6";
+import { SlSettings } from "react-icons/sl";
+import { FiLogIn } from "react-icons/fi";
 import { MdOutlineRoundaboutRight } from "react-icons/md";
 import { generateSideNav } from "../../utils/generateSideNav";
 import { BsBuildings } from "react-icons/bs";
@@ -14,6 +16,8 @@ import { Divider, Typography } from "@mui/material";
 
 const SideNavbar = () => {
   const [open, setOpen] = React.useState(false);
+
+  const a = false;
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -42,7 +46,34 @@ const SideNavbar = () => {
     },
   ];
 
+  const sideBottom = a
+    ? [
+      {
+        icon: <SlSettings />,
+        path: "/settings",
+        label: "Settings",
+      },
+      {
+        icon: <SlSettings />,
+        path: "/settings",
+        label: "Settings",
+      },
+      ]
+    : [
+        {
+          icon: <SlSettings />,
+          path: "/settings",
+          label: "Settings",
+        },
+        {
+          icon: <FiLogIn />,
+          path: "/signin",
+          label: "Sign In",
+        }
+      ];
+
   const sidebarOptions = generateSideNav(sideMenuOptions);
+  const sidebottomOptions = generateSideNav(sideBottom);
 
   return (
     <div>
@@ -66,14 +97,12 @@ const SideNavbar = () => {
           </div>
         </Box>
         <Divider />
-        <Box
-          sx={{ width: 250 }}
-          onClick={toggleDrawer(false)}
-        >
+        <Box sx={{ width: 250 }} onClick={toggleDrawer(false)}>
           <List>{sidebarOptions}</List>
         </Box>
-        <Box>
-
+        <Box position={"absolute"} bottom={0} sx={{ width: 250 }}>
+          <Divider />
+          <List>{sidebottomOptions}</List>
         </Box>
       </Drawer>
     </div>
