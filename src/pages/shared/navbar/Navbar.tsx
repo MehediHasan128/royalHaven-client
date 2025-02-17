@@ -2,11 +2,16 @@ import { Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
 import * as motion from "motion/react-client";
-import { BiMenuAltLeft } from "react-icons/bi";
+import { useState } from "react";
+import SideNavbar from "../../../components/ui/SideNavbar";
 
 const navItems = ["Home", "Properties", "FAQs", "About Us"];
 
 const Navbar = () => {
+
+  const [sidebar, setSidebar] = useState(false);
+  console.log(sidebar);
+
   return (
     <>
       <div className="shadow py-5">
@@ -14,8 +19,8 @@ const Navbar = () => {
           <div className="grid lg:grid-cols-3">
             <div className="flex">
               {/* Menubar */}
-              <div className="flex lg:hidden items-center h-full">
-                <BiMenuAltLeft className="w-12 text-3xl" />
+              <div onClick={() => setSidebar(!sidebar)} className="flex lg:hidden items-center h-full cursor-pointer">
+                <SideNavbar />
               </div>
               {/* Website logo */}
               <div className="w-fit mx-auto lg:mx-0">
