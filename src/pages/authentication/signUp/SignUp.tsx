@@ -32,7 +32,7 @@ const SignUp = () => {
           {/* Company name */}
           <Typography variant="h6">
             <span
-              className="font-semibold text-[#176ead]"
+              className="font-semibold text-[#002C54]"
               style={{ fontFamily: '"Great Vibes", serif' }}
             >
               Royal Haven

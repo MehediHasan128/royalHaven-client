@@ -17,6 +17,7 @@ const Navbar = () => {
     const handelScroll = () => {
       const bannerHeight = document.getElementById("bannerBackground")?.clientHeight || 0;
       setIsScrolled(window.scrollY > bannerHeight);
+      console.log(window.scrollY, bannerHeight);
     }
 
     window.addEventListener("scroll", handelScroll);
@@ -26,7 +27,7 @@ const Navbar = () => {
   return (
     <>
       <div className="py-5 fixed w-full z-50 backdrop-blur-lg backdrop-brightness-125">
-        <div className={`w-[95%] mx-auto ${isScrolled ? "text-black" : "text-white"}`}>
+        <div className={`w-[95%] mx-auto ${isScrolled ? "text-[142D53]" : "text-white"}`}>
           <div className="grid lg:grid-cols-3">
             {/* Menubar and logo */}
             <div className="flex">
@@ -40,7 +41,7 @@ const Navbar = () => {
                   <img className="w-7" src={`${isScrolled ? logoBlue : logoWhite}`} alt="" />
                   <Typography variant="h4">
                     <span
-                      className={`font-semibold ${isScrolled ? "text-[#1b9cf8]" : "text-white"}`}
+                      className={`font-semibold ${isScrolled ? "text-[#142D53]" : "text-white"}`}
                       style={{ fontFamily: '"Great Vibes", serif' }}
                     >
                       Royal Haven
@@ -57,11 +58,11 @@ const Navbar = () => {
                   <NavLink
                     to={`/${item.toLowerCase()}`}
                     className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? "active" : ""
+                      isPending ? "pending" : isActive ? "text-blue-500" : ""
                     }
                   >
-                    <Typography variant="subtitle1">
-                      <span className="font-medium">{item}</span>
+                    <Typography variant="body1">
+                      <span className="font-light">{item}</span>
                     </Typography>
                   </NavLink>
                 </>
