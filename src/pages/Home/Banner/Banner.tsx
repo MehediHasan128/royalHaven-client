@@ -4,11 +4,13 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { AiOutlineSafety } from "react-icons/ai";
 import { BiSupport } from "react-icons/bi";
 
+
 const Banner = () => {
+
   return (
     <div id="bannerBackground">
       <div className="h-screen lg:px-20">
-        <div className="absolute top-[30%] md:top-[20%] lg:top-[25%] text-white w-[90%] lg:w-[60%] px-5 lg:px-0">
+        <div data-aos="fade-up" className="absolute top-[30%] md:top-[20%] lg:top-[25%] text-white w-[90%] lg:w-[60%] px-5 lg:px-0">
           <div>
             <div className="lg:relative flex md:gap-20">
               <Typography
@@ -43,7 +45,7 @@ const Banner = () => {
             </Typography>
           </div>
         </div>
-        <div className="absolute lg:right-0 top-[55%] md:top-[65%] lg:top-[30%] px-20 space-x-5 lg:space-y-10 flex lg:block mt-5 md:mt-0">
+        <div data-aos="fade-up" className="absolute lg:right-0 top-[55%] md:top-[65%] lg:top-[30%] px-20 space-x-5 lg:space-y-10 flex lg:block mt-5 md:mt-0">
           <div className="border hover:border-blue-500 hover:text-blue-500 text-white p-2 lg:p-3 rounded-full md:text-2xl hover:-translate-y-2 duration-700 cursor-pointer md:w-fit">
             <FaFacebookF />
           </div>
@@ -60,7 +62,7 @@ const Banner = () => {
         <div className="absolute bottom-14 md:bottom-10">
           <div className="flex flex-col lg:flex-row justify-between">
             <div className="text-white flex flex-col lg:flex-row justify-between w-[90%] mx-auto lg:w-[70%] lg:mx-0 gap-5 lg:gap-0">
-              <div className="flex items-center gap-2 lg:w-[45%]">
+              <div className="flex items-center gap-2 md:gap-5 lg:w-[45%]">
                 <div
                   className="bg-[#63636360] rounded-full
               p-3"
@@ -75,7 +77,7 @@ const Banner = () => {
                   </span>
                 </Typography>
               </div>
-              <div className="flex items-center gap-2 lg:w-[45%]">
+              <div className="flex items-center gap-2 md:gap-5 lg:w-[45%]">
                 <div
                   className="bg-[#63636360] rounded-full
               p-3"
