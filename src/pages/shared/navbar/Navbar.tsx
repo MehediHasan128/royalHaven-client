@@ -62,8 +62,8 @@ const Navbar = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <NavLink to="/signin">
-                  <Typography variant="subtitle1">
-                    <span className="bg-blue-500 px-5 py-3 font-semibold text-white rounded-3xl cursor-pointer">
+                  <Typography variant="button">
+                    <span className="border px-5 py-3 font-medium text-white rounded-3xl cursor-pointer">
                       Sign In
                     </span>
                   </Typography>
