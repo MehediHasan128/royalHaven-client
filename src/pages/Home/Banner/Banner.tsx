@@ -9,7 +9,7 @@ const Banner = () => {
 
   return (
     <div id="bannerBackground">
-      <div className="h-screen lg:px-20">
+      <div className="h-screen lg:px-20 relative">
         <div data-aos="fade-up" className="absolute top-[30%] md:top-[20%] lg:top-[25%] text-white w-[90%] lg:w-[60%] px-5 lg:px-0">
           <div>
             <div className="lg:relative flex md:gap-20">
