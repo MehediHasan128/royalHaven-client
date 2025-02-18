@@ -1,4 +1,6 @@
+import Affordable from "./Affordable/Affordable";
 import Banner from "./Banner/Banner";
+import LatestProperty from "./LatestProperty/LatestProperty";
 import WhyUs from "./WhyUs/WhyUs";
 
 const Home = () => {
@@ -6,6 +8,8 @@ const Home = () => {
         <>
             <Banner />
             <WhyUs />
+            <Affordable />
+            <LatestProperty />
         </>
     );
 };

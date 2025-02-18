@@ -3,7 +3,7 @@ import { GoVerified } from "react-icons/go";
 
 const WhyUs = () => {
   return (
-    <div className="bg-gray-200 py-20 px-5 md:px-10 lg:p-20 flex flex-col lg:flex-row justify-center items-start gap-16 md:gap-16 lg:gap-10">
+    <div className="bg-gray-200 py-20 px-5 md:px-10 lg:px-28 lg:py-32 flex flex-col lg:flex-row justify-center items-start gap-16 md:gap-16 lg:gap-10">
       <div>
         <Typography
           sx={{
