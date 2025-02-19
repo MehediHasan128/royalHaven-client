@@ -22,3 +22,25 @@
     max-height: 100vh;
     max-width: 100vw;
 }
+
+
+#investment{
+    background-image: linear-gradient(rgba(231, 231, 231, 0.7), rgba(231, 231, 231, 0.7)), url('../assets/images/duplex2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 800px;
+}
+
+#transparentText{
+    background-image: url('../assets/images/duplex2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 800px;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    font-weight: 900;
+}

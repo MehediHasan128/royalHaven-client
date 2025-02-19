@@ -3,6 +3,7 @@ import LatestProperty from "./LatestProperty/LatestProperty";
 import WhyUs from "./WhyUs/WhyUs";
 import Communication from "./Communication/Communication";
 import Agent from "./Agent/Agent";
+import Investment from "./Investment/Investment";
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <LatestProperty />
             <Communication />
             <Agent />
+            <Investment />
         </>
     );
 };
