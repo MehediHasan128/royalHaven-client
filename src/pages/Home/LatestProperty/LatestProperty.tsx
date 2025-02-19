@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import LatestPropertyCard from "../../../components/ui/LatestPropertyCard";
 import { FaChevronRight, FaAngleLeft } from "react-icons/fa6";
-import Container from "../../../components/layout/Container";
+import Container from "../../../components/ui/Container";
 
 const LatestProperty = () => {
   return (
