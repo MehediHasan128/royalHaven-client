@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <>
       <div className="py-5 fixed w-full z-50 backdrop-blur-lg backdrop-brightness-125">
-        <div className={`w-[95%] mx-auto ${isScrolled ? "text-[142D53]" : "text-white"}`}>
+        <div className={`w-[95%] mx-auto ${isScrolled ? "text-[#142D53]" : "text-white"}`}>
           <div className="grid lg:grid-cols-3">
             {/* Menubar and logo */}
             <div className="flex">

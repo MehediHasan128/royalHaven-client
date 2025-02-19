@@ -2,7 +2,7 @@ import { Divider, Typography } from "@mui/material";
 import discusse from "../../../assets/images/discusse.jpg";
 import { GoVerified } from "react-icons/go";
 
-const Affordable = () => {
+const Communication = () => {
   return (
     <div className="p-10 lg:px-20 lg:py-32">
       <div className="flex flex-col-reverse lg:flex-row justify-between gap-20 relative">
@@ -106,4 +106,4 @@ const Affordable = () => {
   );
 };
 
-export default Affordable;
+export default Communication;

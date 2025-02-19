@@ -5,6 +5,7 @@ import router from "./routes/main.routes.tsx";
 import { RouterProvider } from "react-router-dom";
 import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 
+
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
