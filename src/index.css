@@ -6,6 +6,8 @@
 *{
     box-sizing: border-box;
     font-family: "Roboto", serif;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
 
