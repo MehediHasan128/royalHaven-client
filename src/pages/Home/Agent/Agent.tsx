@@ -5,11 +5,11 @@ import AgentCard from "../../../components/ui/AgentCard";
 const Agent = () => {
   return (
     <Container>
-      <div className="lg:w-[70%] text-justify">
-        <Typography variant="h3">
+      <div className="lg:w-[70%] lg:text-justify">
+        <Typography sx={{typography: {xs: 'h4',sm: 'h4',lg: 'h3'}}}>
           <span>Meet Our Trusted Agents</span>
         </Typography>
-        <div className="border-2 border-[#142D53] w-[20%] mt-2 mb-10"></div>
+        <div className="border-2 border-[#142D53] w-[40%] md:w-[20%] mt-2 mb-10"></div>
         <Typography variant="body2">
           <span className="text-gray-600">
             At Royal Haven, our experienced and dedicated agents are here to
@@ -20,7 +20,8 @@ const Agent = () => {
         </Typography>
       </div>
 
-        <div className="my-16 flex justify-center items-center gap-10">
+        <div className="my-16 flex flex-col lg:flex-row justify-center items-center gap-10">
+          <AgentCard />
           <AgentCard />
           <AgentCard />
           <AgentCard />
