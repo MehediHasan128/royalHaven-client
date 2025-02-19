@@ -3,7 +3,7 @@ import { MdOutlineLocationOn, MdVerified } from "react-icons/md";
 
 const LatestPropertyCard = () => {
     return (
-        <div className="p-2 rounded space-y-3">
+        <div data-aos="fade-up" className="p-2 rounded space-y-3">
             {/* Card image */}
             <div className="relative w-full h-[500px] overflow-hidden group">
               <img

@@ -1,11 +1,12 @@
 import { Typography } from "@mui/material";
 import LatestPropertyCard from "../../../components/ui/LatestPropertyCard";
+import { FaChevronRight, FaAngleLeft } from "react-icons/fa6";
 
 const LatestProperty = () => {
   return (
-    <div className="bg-gray-100 px-10 py-32">
-      <div className="w-[90%] mx-auto">
-        <div className="w-[70%]">
+    <div className="px-10 py-20 md:py-32">
+      <div className="lg:w-[90%] mx-auto">
+        <div className="lg:w-[70%] text-justify">
           <Typography variant="h3">
             <span>Latest Property</span>
           </Typography>
@@ -21,7 +22,15 @@ const LatestProperty = () => {
             </span>
           </Typography>
         </div>
-        <div className="mt-20 grid grid-cols-4 gap-3">
+        <div data-aos="fade-up" className="mx-3 flex justify-end gap-2 md:mt-10">
+          <div className="bg-gray-300 p-2 md:p-4 rounded-full text-lg cursor-pointer hover:-translate-x-1 duration-700">
+            <FaAngleLeft />
+          </div>
+          <div className="bg-gray-300 p-2 md:p-4 rounded-full text-lg cursor-pointer hover:translate-x-1 duration-700">
+            <FaChevronRight />
+          </div>
+        </div>
+        <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-4 lg:gap-3">
           {/* Card */}
           <LatestPropertyCard />
           <LatestPropertyCard />
