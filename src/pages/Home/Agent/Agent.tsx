@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import Container from "../../../components/ui/Container";
 import AgentCard from "../../../components/ui/AgentCard";
+import CustomButton from "../../../components/ui/CustomButton";
 
 const Agent = () => {
   return (
@@ -20,16 +21,14 @@ const Agent = () => {
         </Typography>
       </div>
 
-        <div className="my-16 flex flex-col lg:flex-row justify-center items-center gap-10">
+        <div className="my-16 grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
           <AgentCard imageURL="https://tinyurl.com/yuyw45vn" name="Mehedi Hasan" email="mehedihasan@gmail.com" />
           <AgentCard imageURL="https://tinyurl.com/3eempers" name="Md. Mahfuz" email="mdmahfuz@gmail.com" />
           <AgentCard imageURL="https://tinyurl.com/bdh3behy" name="Zihad Mahmud" email="zihadmahmud@gmail.com" />
           <AgentCard imageURL="https://tinyurl.com/3wxfn295" name="Salman Jahan" email="salmanjahan@gmail.com" />
         </div>
 
-        <div className="border w-fit mx-auto px-5 py-3 rounded-full cursor-pointer">
-          <button><Typography variant="button" className="cursor-pointer">See More</Typography></button>
-        </div>
+        <CustomButton title="See More" />
     </Container>
   );
 };

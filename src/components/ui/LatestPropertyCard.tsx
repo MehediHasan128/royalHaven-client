@@ -13,7 +13,7 @@ const LatestPropertyCard = ({imageURL, title, code, price, location}: TLatestPro
     return (
         <div data-aos="fade-up" className="p-2 rounded space-y-3">
             {/* Card image */}
-            <div className="relative w-full h-[500px] overflow-hidden group">
+            <div className="relative w-full h-[150px] md:h-[300px] lg:h-[500px] overflow-hidden group">
               <img
                 className="w-full h-full object-cover rounded"
                 src={imageURL}
@@ -27,8 +27,8 @@ const LatestPropertyCard = ({imageURL, title, code, price, location}: TLatestPro
               </div>
             </div>
             {/* Card content */}
-            <div className="ml-3">
-              <div className="flex justify-between items-center">
+            <div className="lg:ml-3">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                 <Typography
                   variant="subtitle1"
                   className="flex items-center gap-3"
@@ -40,13 +40,13 @@ const LatestPropertyCard = ({imageURL, title, code, price, location}: TLatestPro
                   <span className="text-gray-600 mr-3">{code}</span>
                 </Typography>
               </div>
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                 <Typography variant="subtitle2">
-                  <span>Price:</span> ${price}
+                  <span>Price:</span> <span className="text-blue-600">${price}</span>
                 </Typography>
-                <div className="flex justify-center items-center gap-2 mr-3 text-gray-600">
+                <div className="flex md:justify-center items-center gap-1 md:gap-2 md:mr-3 text-gray-600">
                   <MdOutlineLocationOn />
-                  <Typography variant="subtitle2">{location}</Typography>
+                  <Typography sx={{typography: {xs: "caption", lg: "subtitle2"}}}>{location}</Typography>
                 </div>
               </div>
             </div>

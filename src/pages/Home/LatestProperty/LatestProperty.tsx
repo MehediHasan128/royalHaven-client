@@ -22,7 +22,7 @@ const LatestProperty = () => {
           </span>
         </Typography>
       </div>
-      <div data-aos="fade-up" className="mx-3 flex justify-end gap-2 md:mt-10">
+      <div data-aos="fade-up" className="mx-3 hidden lg:flex justify-end gap-2 mt-10">
         <div className="bg-gray-300 p-2 md:p-4 rounded-full text-lg cursor-pointer hover:-translate-x-1 duration-700">
           <FaAngleLeft />
         </div>
@@ -30,7 +30,7 @@ const LatestProperty = () => {
           <FaChevronRight />
         </div>
       </div>
-      <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-4 lg:gap-3">
+      <div className="mt-5 grid grid-cols-2 lg:grid-cols-4 lg:gap-3">
         {/* Card */}
         <LatestPropertyCard imageURL="https://static.vecteezy.com/system/resources/previews/053/286/023/non_2x/high-definition-showcasing-a-beautifully-designed-modern-duplex-house-free-photo.jpg" title="Modern Duplex" code="MDH503" price="550" location="Dhaka, Bangladesh" />
         <LatestPropertyCard imageURL="https://cdn.shopify.com/s/files/1/0518/2557/4043/files/ongriddesign_duplex_home_design_2024_3_1024x1024.jpg?v=1703230949" title="Modern Duplex" code="MDH503" price="1250" location="Kuala lampur, Malaysia" />
