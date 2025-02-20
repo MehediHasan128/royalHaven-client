@@ -58,7 +58,7 @@ const Navbar = () => {
                   <NavLink
                     to={`/${item.toLowerCase()}`}
                     className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? "text-blue-500" : ""
+                      isPending ? "pending" : isActive ? "text-blue-500 font-semibold" : ""
                     }
                   >
                     <Typography variant="body1">

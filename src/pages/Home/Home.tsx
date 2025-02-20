@@ -4,6 +4,7 @@ import WhyUs from "./WhyUs/WhyUs";
 import Communication from "./Communication/Communication";
 import Agent from "./Agent/Agent";
 import Investment from "./Investment/Investment";
+import Testimonial from "./Testimonial/Testimonial";
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <LatestProperty />
             <Communication />
             <Agent />
+            <Testimonial />
             <Investment />
         </>
     );
