@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 const Investment = () => {
   return (
     <div id="investment" className="relative">
-      <div className="flex justify-center">
+      <div data-aos="fade-up" className="flex justify-center">
         <div className="mt-32  text-center absolute">
           <Typography variant="h2">
             <span className="font-semibold">Unlock Your Dream Home Today!</span>

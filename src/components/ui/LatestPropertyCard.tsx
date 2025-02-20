@@ -1,14 +1,22 @@
 import { Typography } from "@mui/material";
 import { MdOutlineLocationOn, MdVerified } from "react-icons/md";
 
-const LatestPropertyCard = () => {
+type TLatestPropertyCardProps = {
+  imageURL: string;
+  title: string;
+  code: string;
+  price: string;
+  location: string;
+}
+
+const LatestPropertyCard = ({imageURL, title, code, price, location}: TLatestPropertyCardProps) => {
     return (
         <div data-aos="fade-up" className="p-2 rounded space-y-3">
             {/* Card image */}
             <div className="relative w-full h-[500px] overflow-hidden group">
               <img
                 className="w-full h-full object-cover rounded"
-                src="https://static.vecteezy.com/system/resources/previews/053/286/023/non_2x/high-definition-showcasing-a-beautifully-designed-modern-duplex-house-free-photo.jpg"
+                src={imageURL}
                 alt=""
               />
               {/* Details button */}
@@ -25,20 +33,20 @@ const LatestPropertyCard = () => {
                   variant="subtitle1"
                   className="flex items-center gap-3"
                 >
-                  <span>Modern Duplex House</span>{" "}
+                  <span>{title}</span>{" "}
                   <MdVerified className="text-blue-500" />
                 </Typography>
                 <Typography variant="subtitle2">
-                  <span className="text-gray-600 mr-3">MDH506</span>
+                  <span className="text-gray-600 mr-3">{code}</span>
                 </Typography>
               </div>
               <div className="flex justify-between items-center">
                 <Typography variant="subtitle2">
-                  <span>Price:</span> $550
+                  <span>Price:</span> ${price}
                 </Typography>
                 <div className="flex justify-center items-center gap-2 mr-3 text-gray-600">
                   <MdOutlineLocationOn />
-                  <Typography variant="subtitle2">Dhaka, Bangladesh</Typography>
+                  <Typography variant="subtitle2">{location}</Typography>
                 </div>
               </div>
             </div>
@@ -47,3 +55,7 @@ const LatestPropertyCard = () => {
 };
 
 export default LatestPropertyCard;
+
+
+
+

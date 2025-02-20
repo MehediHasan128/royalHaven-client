@@ -32,10 +32,10 @@ const LatestProperty = () => {
       </div>
       <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-4 lg:gap-3">
         {/* Card */}
-        <LatestPropertyCard />
-        <LatestPropertyCard />
-        <LatestPropertyCard />
-        <LatestPropertyCard />
+        <LatestPropertyCard imageURL="https://static.vecteezy.com/system/resources/previews/053/286/023/non_2x/high-definition-showcasing-a-beautifully-designed-modern-duplex-house-free-photo.jpg" title="Modern Duplex" code="MDH503" price="550" location="Dhaka, Bangladesh" />
+        <LatestPropertyCard imageURL="https://cdn.shopify.com/s/files/1/0518/2557/4043/files/ongriddesign_duplex_home_design_2024_3_1024x1024.jpg?v=1703230949" title="Modern Duplex" code="MDH503" price="1250" location="Kuala lampur, Malaysia" />
+        <LatestPropertyCard imageURL="https://ongrid.design/cdn/shop/files/ongriddesign_elevation_duplex_32.jpg?v=1707387897" title="Modern Duplex" code="MDH503" price="850" location="Singapore" />
+        <LatestPropertyCard imageURL="https://cdn.prod.website-files.com/5d13ec82c4ad4286e691a14b/5d362b60cd15db11d3d24e6a_duplex_v_twin_image.jpg" title="Modern Duplex" code="MDH503" price="1550" location="Los Angle, USA" />
       </div>
     </Container>
   );

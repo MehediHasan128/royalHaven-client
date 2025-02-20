@@ -2,27 +2,33 @@ import { Typography } from "@mui/material";
 import { MdVerified } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 
-const AgentCard = () => {
+type TAgentCardProp = {
+  imageURL: string;
+  name: string;
+  email: string;
+}
+
+const AgentCard = ({imageURL, name, email}: TAgentCardProp) => {
   return (
     <div className="rounded-xl space-y-4">
       <div className="w-96 h-96">
         <img
           className="rounded-xl w-full h-full object-cover"
-          src="https://www.wikihow.com/images/9/90/What_type_of_person_are_you_quiz_pic.png"
-          alt=""
+          src={imageURL}
+          alt="agent"
         />
       </div>
       <div className="bg-gray-100 rounded-xl p-3 shadow flex items-center justify-between">
         <div>
           <div className="flex items-center gap-2">
             <Typography variant="subtitle1">
-              <span className="font-medium">Mehedi Hasan</span>
+              <span className="font-medium">{name}</span>
             </Typography>
             <MdVerified className="text-blue-600" />
           </div>
           <Typography variant="caption">
             <span className="flex items-center gap-1">
-              <MdEmail className="text-lg" /> mehedihasan12926@gmail.com
+              <MdEmail className="text-lg" /> {email}
             </span>
           </Typography>
         </div>
@@ -35,3 +41,5 @@ const AgentCard = () => {
 };
 
 export default AgentCard;
+
+// https://www.wikihow.com/images/9/90/What_type_of_person_are_you_quiz_pic.png

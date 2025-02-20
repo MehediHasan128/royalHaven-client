@@ -21,10 +21,10 @@ const Agent = () => {
       </div>
 
         <div className="my-16 flex flex-col lg:flex-row justify-center items-center gap-10">
-          <AgentCard />
-          <AgentCard />
-          <AgentCard />
-          <AgentCard />
+          <AgentCard imageURL="https://tinyurl.com/yuyw45vn" name="Mehedi Hasan" email="mehedihasan@gmail.com" />
+          <AgentCard imageURL="https://tinyurl.com/3eempers" name="Md. Mahfuz" email="mdmahfuz@gmail.com" />
+          <AgentCard imageURL="https://tinyurl.com/bdh3behy" name="Zihad Mahmud" email="zihadmahmud@gmail.com" />
+          <AgentCard imageURL="https://tinyurl.com/3wxfn295" name="Salman Jahan" email="salmanjahan@gmail.com" />
         </div>
 
         <div className="border w-fit mx-auto px-5 py-3 rounded-full cursor-pointer">
