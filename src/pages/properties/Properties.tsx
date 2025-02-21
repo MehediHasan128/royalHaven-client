@@ -7,7 +7,7 @@ const Properties = () => {
   return (
     <div className="h-screen flex flex-col">
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 w-full h-20 flex items-center px-4 shadow z-50">
+      <header className="fixed top-0 left-0 w-full h-20 flex items-center px-5 shadow z-50">
         <Header />
       </header>
 
