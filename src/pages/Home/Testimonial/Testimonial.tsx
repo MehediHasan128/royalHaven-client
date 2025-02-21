@@ -5,7 +5,6 @@ import TestimonialCard from "../../../components/ui/TestimonialCard";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 import Autoplay from 'embla-carousel-autoplay'
-import Fade from 'embla-carousel-fade'
 
 const data = [
   {
@@ -35,7 +34,7 @@ const data = [
 ];
 
 const Testimonial = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay(), Fade()]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -64,10 +63,10 @@ const Testimonial = () => {
           </Typography>
         </div>
 
-        <div className="flex justify-center items-center mt-20">
+        <div className="flex justify-center items-center mt-10 md:mt-20">
           <button
             onClick={scrollPrev}
-            className="cursor-pointer hover:-translate-x-3 duration-700"
+            className="cursor-pointer hover:-translate-x-3 duration-700 hidden md:flex"
           >
             <GoChevronLeft className="text-7xl" />
           </button>
@@ -75,7 +74,7 @@ const Testimonial = () => {
           <div className="overflow-hidden w-[100%]" ref={emblaRef}>
             <div className="flex">
               {data.map((item) => (
-                <div className="flex-[0_0_100%] px-4" key={item.key}>
+                <div className="flex-[0_0_100%] px-2" key={item.key}>
                   <TestimonialCard
                     name={item.name}
                     location={item.location}
@@ -89,7 +88,7 @@ const Testimonial = () => {
 
           <button
             onClick={scrollNext}
-            className="cursor-pointer hover:translate-x-3 duration-700"
+            className="cursor-pointer hover:translate-x-3 duration-700 hidden md:flex"
           >
             <GoChevronRight className="text-7xl" />
           </button>
