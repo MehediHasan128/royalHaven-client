@@ -8,3 +8,9 @@
   scrollbar-width: thin;
   scroll-behavior: smooth;
 }
+
+#logoFont {
+  font-family: "Great Vibes", serif;
+  font-weight: 800;
+  color: #002C54;
+}
