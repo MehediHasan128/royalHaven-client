@@ -20,7 +20,7 @@ const Header = () => {
           <span id="logoFont">Royal Haven</span>
         </Typography>
       </NavLink>
-      <div className="flex justify-between items-center gap-2 p-1 rounded-full bg-gray-100">
+      <div className="flex justify-between items-center gap-2 p-1 rounded-full bg-gray-200">
         {buttons.map((btn) => (
           <button
             onClick={() => setActiveBtn(btn)}
@@ -38,11 +38,11 @@ const Header = () => {
       <div className="mr-5 w-[40%] flex justify-center gap-3 items-center">
         <div className="relative w-[50%]">
           <input
-            className="bg-gray-100 py-2 px-10 rounded-full border-none focus:outline focus:outline-blue-700 w-full"
+            className="bg-gray-200 py-2 px-10 rounded-full border-none focus:outline focus:outline-blue-700 w-full"
             type="text"
             name="searchField"
             id="searchField"
-            placeholder="Search"
+            placeholder="Search Properties"
           />
           <div className="absolute top-0 left-0 rounded-l-full h-full pl-3 flex justify-center items-center text-xl">
             <IoIosSearch />
@@ -51,14 +51,14 @@ const Header = () => {
             <MdOutlineCancel className="hidden" />
           </button>
         </div>
-        <div className="bg-gray-100 p-3 text-xl rounded-full">
+        <div className="bg-gray-200 p-3 text-xl rounded-full">
           <LuMessageSquareText />
         </div>
-        <div className="bg-gray-100 p-3 text-xl rounded-full">
+        <div className="bg-gray-200 p-3 text-xl rounded-full">
           <GoBell />
         </div>
         <div className="flex items-center gap-2">
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt="Remy Sharp" src="https://tinyurl.com/mpwra7w5" />
           <div className="leading-0.5">
             <Typography variant="subtitle2">Mehedi Hasan</Typography>
             <Typography variant="caption">mehedihadan@gmail.com</Typography>
