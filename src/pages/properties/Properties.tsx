@@ -7,7 +7,6 @@ import Sidebar from "./Sidebar/Sidebar";
 const Properties = () => {
 
   const [propertyId, setPropertyId] = useState<string>("prop-001");
-  console.log(propertyId);
 
   return (
     <div className="h-screen flex flex-col">
@@ -18,7 +17,7 @@ const Properties = () => {
 
       <div className="flex flex-1 pt-20">
         {/* Sidebar */}
-        <aside className="w-64 bg-gray-800 text-white h-full p-4 fixed left-0 top-20">
+        <aside className="w-64 h-full py-4 fixed left-0 top-20 shadow-lg">
           <Sidebar />
         </aside>
 

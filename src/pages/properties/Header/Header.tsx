@@ -1,16 +1,17 @@
 import { Avatar, Typography } from "@mui/material";
 import logo from "../../../assets/images/logo.png";
 import { useState } from "react";
-import { IoIosSearch } from "react-icons/io";
-import { MdOutlineCancel } from "react-icons/md";
 import { GoBell } from "react-icons/go";
 import { LuMessageSquareText } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
+import SearchInput from "../../../components/ui/SearchInput";
+import { IoIosSearch } from "react-icons/io";
 
 const buttons = ["All", "Sell", "Rent", "Favorites", "Services"];
 
 const Header = () => {
   const [activeBtn, setActiveBtn] = useState("All");
+  const [searchText, setSearchText] = useState<string | null>(null);
 
   return (
     <div className="flex items-center justify-between w-full">
@@ -40,20 +41,8 @@ const Header = () => {
         ))}
       </div>
       <div className="mr-5 w-[40%] flex justify-center gap-3 items-center">
-        <div className="relative w-[50%]">
-          <input
-            className="bg-gray-200 py-2 px-10 rounded-full border-none focus:outline focus:outline-blue-700 w-full"
-            type="text"
-            name="searchField"
-            id="searchField"
-            placeholder="Search Properties"
-          />
-          <div className="absolute top-0 left-0 rounded-l-full h-full pl-3 flex justify-center items-center text-xl">
-            <IoIosSearch />
-          </div>
-          <button className="absolute top-0 right-0 rounded-l-full h-full pr-3 flex justify-center items-center text-xl hover:scale-105 duration-700 cursor-pointer">
-            <MdOutlineCancel className="hidden" />
-          </button>
+        <div className="w-[50%]">
+          <SearchInput name="searchField" placeholder="Search Properties" searchText={setSearchText} icon={<IoIosSearch />} />
         </div>
         <div className="bg-gray-200 p-3 text-xl rounded-full">
           <LuMessageSquareText />
