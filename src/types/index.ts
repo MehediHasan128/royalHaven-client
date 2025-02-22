@@ -1,0 +1,24 @@
+export type TPropertyInformation = {
+  id: string;
+  propertyTitle: string;
+  propertyType: "House" | "Apartment" | "Villa" | "Commercial" | "Land";
+  listingType: "sale" | "rent";
+  price: number;
+  location: string;
+  totalRoom?: number;
+  bedRoom?: number;
+  bathRoom?: number;
+  totalArea: number;
+  builtYear?: string;
+  parkingSlot?: number;
+  properrtyDescription: string;
+  agentName: string;
+  agentPhoneNumber: string;
+  agentEmailAddress: string;
+  agentProfile?: string;
+  securitySystem?: "CCTV" | "Gated Community";
+  swimmingPool?: boolean;
+  garden?: boolean;
+  propertyImage: string;
+  ratings: number;
+};

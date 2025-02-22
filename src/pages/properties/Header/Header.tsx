@@ -27,11 +27,15 @@ const Header = () => {
             key={btn}
             className={`${
               activeBtn === btn
-                ? "bg-white text-red-600 font-medium"
-                : "bg-transparent text-black"
+                ? "bg-white"
+                : "bg-transparent"
             } px-4 py-1 rounded-full cursor-pointer`}
           >
-            <Typography variant="caption">{btn}</Typography>
+            <Typography variant="caption"><span  className={`${
+              activeBtn === btn
+                ? "font-bold text-blue-600"
+                : ""
+            }`}>{btn}</span></Typography>
           </button>
         ))}
       </div>

@@ -6,14 +6,14 @@ import { FaLocationDot } from "react-icons/fa6";
 
 
 type TCardProps = {
-    id: number;
+    id: string;
     imageURL: string;
     title: string;
     location: string;
     price: number;
     type: string;
     ratings: number;
-    setId: React.Dispatch<React.SetStateAction<number>>
+    setId: React.Dispatch<React.SetStateAction<string>>
 }
 
 

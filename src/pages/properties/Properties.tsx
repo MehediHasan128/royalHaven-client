@@ -6,7 +6,8 @@ import Sidebar from "./Sidebar/Sidebar";
 
 const Properties = () => {
 
-  const [propertyId, setPropertyId] = useState<number>(1);
+  const [propertyId, setPropertyId] = useState<string>("prop-001");
+  console.log(propertyId);
 
   return (
     <div className="h-screen flex flex-col">
@@ -22,7 +23,7 @@ const Properties = () => {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 bg-gray-100 p-4 ml-64">
+        <main className="flex-1 bg-gray-100 p-4 ml-64 min-h-screen">
           <div className="flex gap-5">
             <MainPropertyContainer setId={setPropertyId} />
             <PropertyDetails propertyId={propertyId}/>
