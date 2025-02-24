@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PropertyCard from "../../../components/ui/PropertyCard";
 import { TPropertyInformation } from "../../../types";
+import { Pagination } from "@mui/material";
 
 
 
@@ -29,6 +30,9 @@ const MainPropertyContainer = ({setId}: { setId: React.Dispatch<React.SetStateAc
             setId={setId}
           />
         ))}
+      </div>
+      <div className="mt-10 flex justify-center">
+      <Pagination count={100} shape="rounded" />
       </div>
     </div>
   );
