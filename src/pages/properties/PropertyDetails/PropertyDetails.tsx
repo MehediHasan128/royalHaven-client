@@ -12,8 +12,8 @@ const PropertyDetails = ({ propertyId }: { propertyId: string }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       fetch("data.json")
-      .then((res) => res.json())
-      .then((data) => setPropeties(data));
+        .then((res) => res.json())
+        .then((data) => setPropeties(data));
     }, 3000);
 
     return () => clearTimeout(timeout);
@@ -63,9 +63,12 @@ const PropertyDetails = ({ propertyId }: { propertyId: string }) => {
       {/* Title section */}
       <div className="my-5 px-2 flex justify-between items-end">
         <div>
-          <Typography variant="h6">
-            <span className="font-semibold">{propertyTitle}</span>
-          </Typography>
+          <div className="flex items-center gap-4">
+            <Typography variant="h6">
+              <span className="font-semibold">{propertyTitle}</span>
+            </Typography>
+            <Typography variant="button"><span className={`${listingType === "rent"? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"} px-3 py-1 rounded-xl`}>{listingType}</span></Typography>
+          </div>
           <Typography variant="body2">
             <span className="flex gap-2 font-medium text-gray-600">
               <FaLocationDot className="text-blue-600" /> {location}

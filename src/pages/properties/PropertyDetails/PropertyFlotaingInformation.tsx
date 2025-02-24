@@ -126,6 +126,9 @@ const PropertyFlotaingInformation = (data: TData) => {
           <button className="bg-[#002b5417] px-6 py-2 rounded-full font-medium text-[#002C54]">Contact Agent</button>
           <button className="bg-[#002C54] text-white px-6 py-2 rounded-full font-medium">Order Now</button>
         </div>
+        <div>
+          <img className="h-96 w-full object-cover rounded-2xl" src="https://tinyurl.com/2ax4z27s" alt="" />
+        </div>
       </PropertyTabPanel>
 
       {/* Panel 2 */}
