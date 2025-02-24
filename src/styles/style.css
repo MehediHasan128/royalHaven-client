@@ -88,5 +88,5 @@
 }
 
 #checkbox input:focus ~ .check {
-    box-shadow: 0 0 0 4px #1e88e571;
+    box-shadow: 0 0 0 4px #002b5438;
 }

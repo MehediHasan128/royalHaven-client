@@ -21,20 +21,26 @@ const PageSkeleton = () => {
       {/* Details section */}
       {/* Title section */}
       <div className="my-5 px-2 flex justify-between items-end">
-        <div>
-          <Typography variant="h6">
-            <span className="font-semibold"></span>
-          </Typography>
-          <Typography variant="body2">
-            <span className="flex gap-2 font-medium text-gray-600"></span>
-          </Typography>
-        </div>
-        <div className="pr-3">
+        <div className="w-[60%]">
           <Typography variant="h6">
             <span className="font-semibold">
-              <span className="text-gray-500">
-                <sub></sub>
-              </span>
+              <Skeleton animation="wave" variant="text" height={"100%"} />
+            </span>
+          </Typography>
+          <Typography variant="body2">
+            <span className="flex gap-2 font-medium text-gray-600 w-full">
+              <Skeleton
+                style={{ width: "50%" }}
+                animation="wave"
+                height={"100%"}
+              />
+            </span>
+          </Typography>
+        </div>
+        <div className="pr-3 w-[20%]">
+          <Typography variant="h6">
+            <span className="font-semibold">
+              <Skeleton style={{width: "100%"}} animation="wave" variant="text" height={"100%"} />
             </span>
           </Typography>
         </div>
