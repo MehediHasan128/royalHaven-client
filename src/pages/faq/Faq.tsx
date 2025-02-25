@@ -81,28 +81,28 @@ const Faq = () => {
           <Divider />
           <div className="my-5">
           <Typography variant="h4">
-              <span className="font-medium">For Buyers</span>
+              <span className="font-medium">For Sellers</span>
             </Typography>
             <div className="mt-5">
               <QuestionAccordion
-                panel="5"
-                question="How can I find properties on Royal Haven?"
-                answer="Use our search feature to filter properties based on location, price, type, size, and other preferences. You can also save listings and get notified of new properties matching your interests."
+                panel="9"
+                question="How do I list my property on Royal Haven?"
+                answer='Simply sign up, navigate to the "List Property" section, and provide detailed information about your property, including price, location, images, and key features. After submission, your listing will be reviewed and published.'
               />
               <QuestionAccordion
-                panel="6"
-                question="Is buying through Royal Haven safe?"
-                answer="We verify listings and provide a secure communication channel between buyers and sellers. However, we recommend conducting your own research and consulting legal experts before making a purchase."
+                panel="10"
+                question="Is there a cost to list a property?"
+                answer="We offer both free and premium listing options. Free listings provide basic visibility, while premium listings offer enhanced exposure to attract more buyers."
               />
               <QuestionAccordion
-                panel="7"
-                question="Can I schedule a visit to a property?"
-                answer="Yes, you can request a visit by contacting the seller directly through our platform. Most sellers are open to scheduling property viewings before finalizing a deal."
+                panel="11"
+                question="How can I make my listing more attractive to buyers?"
+                answer="High-quality images, detailed descriptions, competitive pricing, and highlighting key property features can significantly improve your listing’s visibility and engagement."
               />
               <QuestionAccordion
-                panel="8"
-                question="What if I have questions about a listing?"
-                answer='Each property listing has a "Contact Seller" option, allowing you to ask questions and request additional details directly from the property owner or agent.'
+                panel="12"
+                question="How will I know if a buyer is interested?"
+                answer='You will receive notifications via email and your Royal Haven dashboard whenever a buyer sends an inquiry or expresses interest in your property.'
               />
             </div>
           </div>

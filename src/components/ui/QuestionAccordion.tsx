@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
 import MuiAccordionSummary, {
   AccordionSummaryProps,
@@ -22,51 +22,53 @@ const Accordion = styled((props: AccordionProps) => (
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
   <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+    expandIcon={<ExpandMoreIcon sx={{ fontSize: "1.7rem" }} />}
     {...props}
   />
 ))(({ theme }) => ({
-  flexDirection: "row-reverse",
   [`& .${accordionSummaryClasses.expandIconWrapper}.${accordionSummaryClasses.expanded}`]:
     {
-      transform: "rotate(90deg)",
+      transform: "rotate(180deg)",
     },
   [`& .${accordionSummaryClasses.content}`]: {
     marginLeft: theme.spacing(1),
   },
-  ...theme.applyStyles("dark", {
-    backgroundColor: "rgba(255, 255, 255, .05)",
-  }),
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
+  padding: theme.spacing(3),
 }));
 
-const QuestionAccordion = ({panel, question, answer}: {panel: string; question: string; answer: string}) => {
-  const [expanded, setExpanded] = useState<string | false>("panel1");
+const QuestionAccordion = ({
+  panel,
+  question,
+  answer,
+}: {
+  panel: string;
+  question: string;
+  answer: string;
+}) => {
+  const [expanded, setExpanded] = useState<string | false>("1");
 
-  const handleChange = (panel: string) => (event: SyntheticEvent, newExpanded: boolean) => {
+  const handleChange =
+    (panel: string) => (event: SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
 
   return (
     <div>
-      <Accordion
-        expanded={expanded === panel}
-        onChange={handleChange(panel)}
-      >
+      <Accordion expanded={expanded === panel} onChange={handleChange(panel)}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
           <Typography variant="h6" component="span">
             {question}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="subtitle1">
-            <span className="font-medium text-gray-700">
-              {answer}
-            </span>
-          </Typography>
+          <div className="text-justify">
+            <Typography variant="subtitle1">
+              <span className="font-medium text-gray-700">{answer}</span>
+            </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
     </div>
