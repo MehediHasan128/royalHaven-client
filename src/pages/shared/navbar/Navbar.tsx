@@ -6,7 +6,7 @@ import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
 import SideNavbar from "../../../components/ui/SideNavbar";
 
-const navItems = ["Home", "Properties", "FAQs", "About Us"];
+const navItems = ["Home", "Properties", "FAQs", "AboutUs"];
 
 const Navbar = () => {
   const location = useLocation();
@@ -31,11 +31,11 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`py-5 ${["/faqs", "/about us"].includes(path)? "block" : "fixed"}  w-full z-50 backdrop-blur-lg backdrop-brightness-125`}
+        className={`py-5 ${["/faqs", "/aboutus"].includes(path)? "block" : "fixed"}  w-full z-50 backdrop-blur-lg backdrop-brightness-125`}
       >
         <div
           className={`w-[95%] mx-auto ${
-            isScrolled || ["/faqs", "/about us"].includes(path)
+            isScrolled || ["/faqs", "/aboutus"].includes(path)
               ? "text-[#142D53]"
               : "text-white"
           }`}
@@ -56,7 +56,7 @@ const Navbar = () => {
                   <img
                     className="w-7"
                     src={`${
-                      isScrolled || ["/faqs", "/about us"].includes(path)
+                      isScrolled || ["/faqs", "/aboutus"].includes(path)
                         ? logoBlue
                         : logoWhite
                     }`}
@@ -65,7 +65,7 @@ const Navbar = () => {
                   <Typography variant="h4">
                     <span
                       className={`font-semibold ${
-                        isScrolled || ["/faqs", "/about us"].includes(path)
+                        isScrolled || ["/faqs", "/aboutus"].includes(path)
                           ? "text-[#142D53]"
                           : "text-white"
                       }`}
@@ -110,7 +110,7 @@ const Navbar = () => {
                   <Typography variant="button">
                     <span
                       className={`border px-5 py-3 font-medium ${
-                        isScrolled || ["/faqs", "/about us"].includes(path)
+                        isScrolled || ["/faqs", "/aboutus"].includes(path)
                           ? "text-black"
                           : "text-white"
                       } rounded-3xl cursor-pointer`}

@@ -3,8 +3,9 @@ import { createBrowserRouter } from "react-router-dom";
 import SignIn from "../pages/authentication/signIn/SignIn";
 import SignUp from "../pages/authentication/signUp/SignUp";
 import Home from "../pages/Home/Home";
-import Properties from "../pages/properties/properties";
 import Faq from "../pages/faq/Faq";
+import AboutUs from "../pages/aboutUs/AboutUs";
+import Properties from "../pages/properties/Properties";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: '/faqs',
                 element: <Faq />
+            },
+            {
+                path: '/aboutus',
+                element: <AboutUs />
             },
         ]
     },

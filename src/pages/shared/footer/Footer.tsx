@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="flex justify-between p-20">
-        <div className="w-[30%] space-y-2">
+    <div className="bg-gray-50">
+      <div className="flex flex-col lg:flex-row justify-between p-5 lg:p-20 gap-10 lg:gap-0">
+        <div className="lg:w-[30%] space-y-2">
           <div className="w-fit">
             <img className="w-16 mx-auto" src={logo} alt="" />
             <Typography variant="h4">
@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-[65%] flex justify-end gap-20">
+        <div className="lg:w-[65%] flex flex-col lg:flex-row justify-end gap-5 lg:gap-20">
           {/* Quick Links */}
           <div>
             <Typography variant="h6">
@@ -103,6 +103,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      
       <div className="bg-gray-300 p-10 text-center">
         <Typography variant="caption"><span className="text-gray-800 text-lg">© 2025 Royal Haven. All rights reserved.</span></Typography>
       </div>
