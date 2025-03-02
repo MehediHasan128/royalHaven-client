@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home";
 import Faq from "../pages/faq/Faq";
 import AboutUs from "../pages/aboutUs/AboutUs";
 import Properties from "../pages/properties/Properties";
+import AdminLayout from "../components/layout/AdminLayout";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
                 element: <AboutUs />
             },
         ]
+    },
+    {
+        path: '/admin',
+        element: <AdminLayout />
     },
     {
         path: '/signin',

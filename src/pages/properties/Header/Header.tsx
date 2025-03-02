@@ -9,41 +9,65 @@ import { IoIosSearch } from "react-icons/io";
 
 const buttons = ["All", "Sell", "Rent", "Favorites", "Services"];
 
+const userRole = "admin";
+
 const Header = () => {
   const [activeBtn, setActiveBtn] = useState("All");
   const [searchText, setSearchText] = useState<string | null>(null);
 
   return (
     <div className="flex items-center justify-between w-full">
-      <NavLink to="/home" className="w-fit flex items-end gap-3">
+      <NavLink
+        to={`${userRole === "admin" ? "/admin" : "/home"}`}
+        className="w-fit flex items-end gap-3"
+      >
         <img className="w-8" src={logo} alt="" />
         <Typography variant="h5">
           <span id="logoFont">Royal Haven</span>
         </Typography>
       </NavLink>
-      <div className="flex justify-between items-center gap-2 p-1 rounded-full bg-gray-200">
-        {buttons.map((btn) => (
-          <button
-            onClick={() => setActiveBtn(btn)}
-            key={btn}
-            className={`${
-              activeBtn === btn
-                ? "bg-white"
-                : "bg-transparent"
-            } px-4 py-1 rounded-full cursor-pointer`}
-          >
-            <Typography variant="caption"><span  className={`${
-              activeBtn === btn
-                ? "font-bold text-blue-600"
-                : ""
-            }`}>{btn}</span></Typography>
-          </button>
-        ))}
-      </div>
-      <div className="mr-5 w-[40%] flex justify-center gap-3 items-center">
-        <div className="w-[50%]">
-          <SearchInput name="searchField" placeholder="Search Properties" searchText={setSearchText} icon={<IoIosSearch />} />
-        </div>
+      {userRole !== "admin" ? (
+        <>
+          <div className="flex justify-between items-center gap-2 p-1 rounded-full bg-gray-200">
+            {buttons.map((btn) => (
+              <button
+                onClick={() => setActiveBtn(btn)}
+                key={btn}
+                className={`${
+                  activeBtn === btn ? "bg-white" : "bg-transparent"
+                } px-4 py-1 rounded-full cursor-pointer`}
+              >
+                <Typography variant="caption">
+                  <span
+                    className={`${
+                      activeBtn === btn ? "font-bold text-blue-600" : ""
+                    }`}
+                  >
+                    {btn}
+                  </span>
+                </Typography>
+              </button>
+            ))}
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
+      <div className="mr-5 flex justify-end gap-3 items-center w-[40%]">
+        {userRole !== "admin" ? (
+          <>
+            <div className="w-full">
+              <SearchInput
+                name="searchField"
+                placeholder="Search Properties"
+                searchText={setSearchText}
+                icon={<IoIosSearch />}
+              />
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
         <div className="bg-gray-200 p-3 text-xl rounded-full">
           <LuMessageSquareText />
         </div>
