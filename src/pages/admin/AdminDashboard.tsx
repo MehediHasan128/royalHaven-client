@@ -1,10 +1,30 @@
-import { Avatar, Typography } from "@mui/material";
+import {
+  Avatar,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import { AiOutlineDollar } from "react-icons/ai";
 import { FaChartLine, FaStar } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
 import { AiOutlinePropertySafety } from "react-icons/ai";
 import { MdOutlinePendingActions } from "react-icons/md";
-import { ResponsiveContainer, Tooltip, AreaChart, Area, Cell, BarChart, CartesianGrid, XAxis, Legend, Bar } from "recharts";
+import {
+  ResponsiveContainer,
+  Tooltip,
+  AreaChart,
+  Area,
+  Cell,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  Legend,
+  Bar,
+} from "recharts";
 import {
   buyerData,
   COLORS,
@@ -14,6 +34,26 @@ import {
   sellingInformation,
 } from "../../types/data";
 import { PieChart, Pie } from "recharts";
+
+function createData(
+  title: string,
+  price: number,
+  imageURL: string,
+  listingType: string
+) {
+  return { title, price, imageURL, listingType };
+}
+
+const rows = [
+  createData("Frozen yoghurt", 159, "https://tinyurl.com/hr8dknmv", "rent"),
+  createData(
+    "Ice cream sandwich",
+    2370,
+    "https://tinyurl.com/yc5e56m9",
+    "sell"
+  ),
+  createData("Eclair", 2625, "https://tinyurl.com/47d6abzu", "sell"),
+];
 
 const AdminDashboard = () => {
   return (
@@ -204,10 +244,10 @@ const AdminDashboard = () => {
                   />
                 </div>
                 <Typography variant="subtitle2">
-                  <span>Mehedi Hasan</span>
+                  <span>Zihad Mahmud</span>
                 </Typography>
                 <Typography variant="caption">
-                  <span className="font-medium">mehedihasan@gmail.com</span>
+                  <span className="font-medium">zihadMahmud.com</span>
                 </Typography>
 
                 <div className="mt-2">
@@ -240,10 +280,10 @@ const AdminDashboard = () => {
                   />
                 </div>
                 <Typography variant="subtitle2">
-                  <span>Rahad Hossian</span>
+                  <span>Md Mahfuz</span>
                 </Typography>
                 <Typography variant="caption">
-                  <span className="font-medium">rahadhossian@gmail.com</span>
+                  <span className="font-medium">mdMahfuz@gmail.com</span>
                 </Typography>
 
                 <div className="mt-2">
@@ -259,9 +299,90 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 grid-rows-2 mt-5 gap-5">
-          <div className="bg-white col-span-1 rounded-2xl shadow-lg h-96">
-            <h1>This is another content</h1>
+        <div className="grid grid-cols-5 grid-rows-2 mt-5 gap-5">
+          <div className="bg-white col-span-2 row-span-2 rounded-2xl shadow-lg min-h-96">
+            <div className="h-[65%] overflow-y-auto">
+              <div className="text-center my-2">
+                <Typography variant="h6">
+                  <span className="font-semibold">Pending Properties</span>
+                </Typography>
+              </div>
+              <div>
+                <TableContainer>
+                  <Table aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Property</TableCell>
+                        <TableCell colSpan={2}>Seller</TableCell>
+                        <TableCell>Price</TableCell>
+                        <TableCell>Action</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => (
+                        <TableRow key={row.title}>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <div className="w-[40%] h-20 overflow-hidden rounded">
+                                <img
+                                  className="rounded w-full h-full"
+                                  src={row.imageURL}
+                                  alt=""
+                                />
+                              </div>
+                              <Typography variant="subtitle2">
+                                <span>
+                                  {row.title} <br />
+                                  <span
+                                    className={`px-2 py-0.5 rounded-xl ${
+                                      row.listingType == "rent"
+                                        ? "bg-green-100 text-green-700"
+                                        : "bg-red-100 text-red-700"
+                                    } font-semibold text-xs uppercase`}
+                                  >
+                                    {row.listingType}
+                                  </span>
+                                </span>
+                              </Typography>
+                            </div>
+                          </TableCell>
+                          <TableCell colSpan={2}>
+                            <div className="space-y-2">
+                              <Avatar src="https://tinyurl.com/ywh23jzh" />
+                              <div className="leading-0">
+                                <Typography variant="subtitle2">
+                                  <span>Mehedi Hasan</span>
+                                </Typography>
+                                <Typography variant="caption">
+                                  <span>Dhaka, Bangladesh</span>
+                                </Typography>
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <Typography variant="subtitle2">
+                              <span>${row.price}</span>
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex gap-2">
+                              <button className="bg-[#002C54] px-2 py-1 rounded-xl text-white font-medium cursor-pointer">
+                                Approve
+                              </button>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
+            </div>
+
+            <div className="mt-5 flex justify-between gap-5 px-2">
+              <div className="w-full h-full bg-gray-50 rounded-2xl"><h1>This is one</h1></div>
+              <div className="w-full h-full bg-gray-50 rounded-2xl"><h1>This is two</h1></div>
+            </div>
           </div>
           <div className="bg-white col-span-3 rounded-2xl shadow-lg h-96">
             <ResponsiveContainer width="100%" height="100%">
@@ -283,6 +404,9 @@ const AdminDashboard = () => {
                 <Bar yAxisId="right" dataKey="revenue" fill="#520216" />
               </BarChart>
             </ResponsiveContainer>
+          </div>
+          <div className="col-span-3 bg-white rounded-2xl shadow-lg p-2">
+            <h1>This is </h1>
           </div>
         </div>
       </div>
