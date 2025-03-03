@@ -68,19 +68,23 @@ const Header = () => {
         ) : (
           <></>
         )}
-        <div className="bg-gray-200 p-3 text-xl rounded-full">
-          <LuMessageSquareText />
-        </div>
-        <div className="bg-gray-200 p-3 text-xl rounded-full">
-          <GoBell />
-        </div>
-        <div className="flex items-center gap-2">
-          <Avatar alt="Remy Sharp" src="https://tinyurl.com/mpwra7w5" />
-          <div className="leading-0.5">
-            <Typography variant="subtitle2">Mehedi Hasan</Typography>
-            <Typography variant="caption">mehedihadan@gmail.com</Typography>
-          </div>
-        </div>
+        {userRole && (
+          <>
+            <div className="bg-gray-200 p-3 text-xl rounded-full">
+              <LuMessageSquareText />
+            </div>
+            <div className="bg-gray-200 p-3 text-xl rounded-full">
+              <GoBell />
+            </div>
+            <div className="flex items-center gap-2">
+              <Avatar alt="Remy Sharp" src="https://tinyurl.com/mpwra7w5" />
+              <div className="leading-0.5">
+                <Typography variant="subtitle2">Mehedi Hasan</Typography>
+                <Typography variant="caption">mehedihadan@gmail.com</Typography>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
