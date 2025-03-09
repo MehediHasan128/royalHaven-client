@@ -1,7 +1,5 @@
 import { Divider, Typography } from "@mui/material";
-import { IoHeart, IoStar } from "react-icons/io5";
-import React, { useState } from "react";
-import { IoBookmark } from "react-icons/io5";
+import { IoStar } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 
 
@@ -18,8 +16,6 @@ type TCardProps = {
 
 
 const PropertyCard = ({id, imageURL, title, location, price, type, ratings, setId}: TCardProps) => {
-  const [clickHeart, setClickHeart] = useState(false);
-  const [clickBookMark, setClickBookMark] = useState(false);
 
   return (
     <div className="rounded-xl p-1">
@@ -29,20 +25,6 @@ const PropertyCard = ({id, imageURL, title, location, price, type, ratings, setI
           src={imageURL}
           alt="property"
         />
-        <div className="absolute top-2 right-1 px-3 text-xl flex items-center gap-2">
-          <IoHeart
-            onClick={() => setClickHeart(!clickHeart)}
-            className={`${
-              clickHeart ? "text-red-700" : "text-white"
-            } cursor-pointer`}
-          />
-          <IoBookmark
-            onClick={() => setClickBookMark(!clickBookMark)}
-            className={`${
-              clickBookMark ? "text-green-500" : "text-white"
-            } cursor-pointer`}
-          />
-        </div>
       </div>
       <div className="mt-2 leading-1">
         <Typography variant="subtitle2">{title}</Typography>
