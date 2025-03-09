@@ -1,43 +1,16 @@
 import {
   Pagination,
   Paper,
-  styled,
   Table,
-  TableBody,
-  TableCell,
-  tableCellClasses,
   TableContainer,
-  TableHead,
-  TableRow,
   Typography,
 } from "@mui/material";
 import SearchInput from "../../../components/ui/SearchInput";
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { LuFilter } from "react-icons/lu";
-import { PhotoView } from "react-photo-view";
-import { HiDotsHorizontal } from "react-icons/hi";
 import TableHeading from "../../../components/ui/TableHeading";
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
+import UsersTableData from "./UsersTableData";
 
 const userData = [
   {
@@ -126,92 +99,16 @@ const Users = () => {
 
         {/* table section */}
         <div className="mt-10">
-          {/* <TableContainer component={Paper}>
+          {/* Table container */}
+          <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>User Profile</StyledTableCell>
-                  <StyledTableCell>CreatedAt</StyledTableCell>
-                  <StyledTableCell>Role</StyledTableCell>
-                  <StyledTableCell>Status</StyledTableCell>
-                  <StyledTableCell>Location</StyledTableCell>
-                  <StyledTableCell align="right">Action</StyledTableCell>
-                </TableRow>
-              </TableHead>
+              <TableHeading tableHeading={tableHEading} />
 
-              <TableBody>
-                {userData.map((data) => (
-                  <StyledTableRow key={data.id}>
-                    <StyledTableCell>
-                      <div className="flex items-center gap-4">
-                        <div
-                          className={`border-2 ${
-                            data.verified
-                              ? "border-green-700"
-                              : "border-red-700"
-                          } w-fit rounded-full p-1`}
-                        >
-                          <div className="w-12 h-12 rounded-full overflow-hidden">
-                            <PhotoView src={data.profileImage}>
-                              <img
-                                src={data.profileImage}
-                                alt=""
-                                className="w-full h-full cursor-pointer"
-                              />
-                            </PhotoView>
-                          </div>
-                        </div>
-                        <div>
-                          <Typography variant="subtitle1">
-                            <span className="font-semibold">{data.name}</span>
-                          </Typography>
-                          <Typography variant="caption">
-                            <span className="font-bold text-gray-600">
-                              {data.email}
-                            </span>
-                          </Typography>
-                        </div>
-                      </div>
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      <Typography variant="subtitle1">
-                        <span className="font-semibold">{data.create}</span>
-                      </Typography>
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      <Typography variant="subtitle1">
-                        <span className="font-semibold">{data.role}</span>
-                      </Typography>
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      <Typography variant="subtitle1">
-                        <span
-                          className={`font-semibold ${
-                            data.status === "Active"
-                              ? "text-green-600"
-                              : "text-red-600"
-                          }`}
-                        >
-                          {data.status}
-                        </span>
-                      </Typography>
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      <Typography variant="subtitle1">
-                        <span className="font-semibold">{data.location}</span>
-                      </Typography>
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      <div className="flex justify-end pr-3">
-                        <HiDotsHorizontal className="text-2xl cursor-pointer" />
-                      </div>
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))}
-              </TableBody>
+              <UsersTableData tableData={userData} />
             </Table>
-          </TableContainer> */}
-          <TableHeading tableHeading={tableHEading} />
+          </TableContainer>
+
+          {/* Table pagination */}
           <div className="mt-5 flex justify-end">
             <Pagination count={100} shape="rounded" />
           </div>
