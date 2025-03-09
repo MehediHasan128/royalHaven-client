@@ -1,5 +1,5 @@
 import {
-    Pagination,
+  Pagination,
   Paper,
   styled,
   Table,
@@ -17,6 +17,7 @@ import { FiSearch } from "react-icons/fi";
 import { LuFilter } from "react-icons/lu";
 import { PhotoView } from "react-photo-view";
 import { HiDotsHorizontal } from "react-icons/hi";
+import TableHeading from "../../../components/ui/TableHeading";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -80,6 +81,15 @@ const userData = [
   },
 ];
 
+const tableHEading = [
+  "User Profile",
+  "CreatedAt",
+  "Role",
+  "Status",
+  "Location",
+  "Action",
+];
+
 const Users = () => {
   const [search, setSearch] = useState<string | null>(null);
 
@@ -116,7 +126,7 @@ const Users = () => {
 
         {/* table section */}
         <div className="mt-10">
-          <TableContainer component={Paper}>
+          {/* <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
               <TableHead>
                 <TableRow>
@@ -200,7 +210,8 @@ const Users = () => {
                 ))}
               </TableBody>
             </Table>
-          </TableContainer>
+          </TableContainer> */}
+          <TableHeading tableHeading={tableHEading} />
           <div className="mt-5 flex justify-end">
             <Pagination count={100} shape="rounded" />
           </div>

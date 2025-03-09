@@ -1,9 +1,12 @@
-import { MdDashboard } from "react-icons/md";
 import AdminDashboard from "../pages/admin/AdminDashboard";
-import { FaUsers } from "react-icons/fa6";
 import Users from "../pages/admin/allUsers/Users";
+import { AiOutlineHome } from "react-icons/ai";
 import { ReactNode } from "react";
 import { generateAdminRoutes, generateAdminSidebar } from "../utils/generateAdminRoutesAndSidebar";
+import { PiUsersThreeLight } from "react-icons/pi";
+import { LuLayoutDashboard } from "react-icons/lu";
+import AllProperties from "../pages/admin/allProperties/AllProperties";
+import { MdPendingActions } from "react-icons/md";
 
 export type TAdminRoutesItem = {
   index?: boolean;
@@ -19,16 +22,28 @@ export const adminRoutes = [
     element: <AdminDashboard />,
   },
   {
-    icon: <MdDashboard />,
+    icon: <LuLayoutDashboard />,
     path: "/admin/dashboard",
     name: 'Dashboard',
     element: <AdminDashboard />,
   },
   {
-    icon: <FaUsers />,
+    icon: <PiUsersThreeLight />,
     path: "/admin/users",
-    name: 'All Users',
+    name: 'Users',
     element: <Users />,
+  },
+  {
+    icon: <AiOutlineHome />,
+    path: "/admin/properties",
+    name: 'Properties',
+    element: <AllProperties />,
+  },
+  {
+    icon: <MdPendingActions />,
+    path: "/admin/pendingProperties",
+    name: 'Pending Properties',
+    element: <AllProperties />,
   },
 ];
 
