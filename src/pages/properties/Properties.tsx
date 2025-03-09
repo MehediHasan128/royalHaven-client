@@ -28,12 +28,12 @@ const Properties = () => {
               className={`${
                 propertyId === null
                   ? "col-span-5"
-                  : "col-span-3 bg-white rounded-2xl p-2"
-              }`}
+                  : "col-span-3"
+              } bg-white rounded-2xl p-2 min-h-screen`}
             >
               <MainPropertyContainer id={propertyId} setId={setPropertyId} />
             </div>
-            <div className={`${propertyId === null ? "hidden" : "col-span-2"}`}>
+            <div className={`${propertyId === null ? "hidden" : "col-span-2"} min-h-screen overflow-hidden`}>
                 <div className="p-2 flex justify-end bg-gray-200 rounded-t-2xl">
                   <RxCross2 onClick={() => setPropertyId(null)} className="text-3xl cursor-pointer" />
                 </div>

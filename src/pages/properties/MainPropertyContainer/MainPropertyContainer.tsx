@@ -33,7 +33,7 @@ const MainPropertyContainer = ({id, setId}: { id: string | null; setId: React.Di
         ))}
       </div>
       
-      <div className="mt-10 flex justify-center">
+      <div className="my-10 flex justify-center">
       <Pagination count={100} shape="rounded" />
       </div>
     </div>
