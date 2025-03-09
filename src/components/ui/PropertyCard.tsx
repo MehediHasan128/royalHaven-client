@@ -13,7 +13,7 @@ type TCardProps = {
     price: number;
     type: string;
     ratings: number;
-    setId: React.Dispatch<React.SetStateAction<string>>
+    setId: React.Dispatch<React.SetStateAction<string | null>>
 }
 
 

@@ -3,10 +3,10 @@ import Header from "./Header/Header";
 import MainPropertyContainer from "./MainPropertyContainer/MainPropertyContainer";
 import PropertyDetails from "./PropertyDetails/PropertyDetails";
 import Sidebar from "./Sidebar/Sidebar";
+import { RxCross2 } from "react-icons/rx";
 
 const Properties = () => {
-
-  const [propertyId, setPropertyId] = useState<string>("prop-001");
+  const [propertyId, setPropertyId] = useState<string | null>(null);
 
   return (
     <div className="h-screen flex flex-col">
@@ -23,9 +23,24 @@ const Properties = () => {
 
         {/* Main Content */}
         <main className="flex-1 bg-gray-100 p-4 ml-64 min-h-screen">
-          <div className="flex gap-5">
-            <MainPropertyContainer setId={setPropertyId} />
-            <PropertyDetails propertyId={propertyId}/>
+          <div className="grid grid-cols-5 gap-5">
+            <div
+              className={`${
+                propertyId === null
+                  ? "col-span-5"
+                  : "col-span-3 bg-white rounded-2xl p-2"
+              }`}
+            >
+              <MainPropertyContainer id={propertyId} setId={setPropertyId} />
+            </div>
+            <div className={`${propertyId === null ? "hidden" : "col-span-2"}`}>
+                <div className="p-2 flex justify-end bg-gray-200 rounded-t-2xl">
+                  <RxCross2 onClick={() => setPropertyId(null)} className="text-3xl cursor-pointer" />
+                </div>
+              <div className="bg-white rounded-b-2xl p-2">
+                <PropertyDetails propertyId={propertyId} />
+              </div>
+            </div>
           </div>
         </main>
       </div>
@@ -34,3 +49,5 @@ const Properties = () => {
 };
 
 export default Properties;
+
+// w-[60%] bg-white rounded-2xl p-2 min-h-screen

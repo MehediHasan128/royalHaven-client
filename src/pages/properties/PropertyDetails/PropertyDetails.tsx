@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { TPropertyInformation } from "../../../types";
 import PageSkeleton from "../../../components/skeleton/PageSkeleton";
 
-const PropertyDetails = ({ propertyId }: { propertyId: string }) => {
+const PropertyDetails = ({ propertyId }: { propertyId: string | null }) => {
   const [properties, setPropeties] = useState<TPropertyInformation[] | null>(
     null
   );
@@ -31,7 +31,7 @@ const PropertyDetails = ({ propertyId }: { propertyId: string }) => {
     property;
 
   return (
-    <div className="w-[40%] bg-white rounded-2xl p-2 min-h-screen">
+    <div>
       {/* Image section */}
       <div className="h-80">
         <div className="grid grid-cols-3 grid-rows-4 gap-3 h-full w-full">

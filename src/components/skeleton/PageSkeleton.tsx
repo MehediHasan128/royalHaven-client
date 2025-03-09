@@ -2,7 +2,7 @@ import { Skeleton, Typography } from "@mui/material";
 
 const PageSkeleton = () => {
   return (
-    <div className="w-[40%] bg-white rounded-2xl p-2 min-h-screen">
+    <>
       {/* Image section */}
       <div className="h-80">
         <div className="grid grid-cols-3 grid-rows-4 gap-3 h-full w-full">
@@ -45,7 +45,7 @@ const PageSkeleton = () => {
           </Typography>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

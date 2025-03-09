@@ -5,7 +5,7 @@ import { Pagination } from "@mui/material";
 
 
 
-const MainPropertyContainer = ({setId}: { setId: React.Dispatch<React.SetStateAction<string>> }) => {
+const MainPropertyContainer = ({id, setId}: { id: string | null; setId: React.Dispatch<React.SetStateAction<string | null>> }) => {
 
   const [properties, setPropeties] = useState<TPropertyInformation[] | null>(null);
   useEffect(() => {
@@ -13,10 +13,11 @@ const MainPropertyContainer = ({setId}: { setId: React.Dispatch<React.SetStateAc
     .then((res) => res.json())
     .then((data) => setPropeties(data))
   }, [])
+  console.log(id);
 
   return (
-    <div className="w-[60%] bg-white rounded-2xl p-2 min-h-screen">
-      <div className="grid grid-cols-3 gap-5">
+    <div>
+      <div className={`grid ${(id === null)? "grid-cols-4" : "grid-cols-3"} gap-5`}>
         {properties?.map((property) => (
           <PropertyCard
             key={property.id}
@@ -31,6 +32,7 @@ const MainPropertyContainer = ({setId}: { setId: React.Dispatch<React.SetStateAc
           />
         ))}
       </div>
+      
       <div className="mt-10 flex justify-center">
       <Pagination count={100} shape="rounded" />
       </div>
