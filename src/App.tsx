@@ -9,7 +9,7 @@ function App() {
       Aos.init({
         duration: 2000,
       })
-    }, [])
+    }, []);
 
   return (
     <div style={{overflowY: "auto", scrollbarWidth: "thin"}}>

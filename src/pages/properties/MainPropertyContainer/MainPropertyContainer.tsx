@@ -13,7 +13,6 @@ const MainPropertyContainer = ({id, setId}: { id: string | null; setId: React.Di
     .then((res) => res.json())
     .then((data) => setPropeties(data))
   }, [])
-  console.log(id);
 
   return (
     <div>

@@ -98,8 +98,8 @@ const UsersTableData = ({ tableData }: { tableData: TUserDataProps[] }) => {
               <span className="font-semibold">{data.location}</span>
             </Typography>
           </StyledTableCell>
-          <StyledTableCell align="right">
-            <div className="flex justify-end pr-3">
+          <StyledTableCell>
+            <div>
               <HiDotsHorizontal className="text-2xl cursor-pointer" />
             </div>
           </StyledTableCell>

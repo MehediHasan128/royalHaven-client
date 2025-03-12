@@ -65,6 +65,7 @@ const tableHEading = [
 
 const Users = () => {
   const [search, setSearch] = useState<string | null>(null);
+  console.log(search);
 
   return (
     <div>

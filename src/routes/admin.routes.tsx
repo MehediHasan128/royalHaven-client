@@ -6,7 +6,8 @@ import { generateAdminRoutes, generateAdminSidebar } from "../utils/generateAdmi
 import { PiUsersThreeLight } from "react-icons/pi";
 import { LuLayoutDashboard } from "react-icons/lu";
 import AllProperties from "../pages/admin/allProperties/AllProperties";
-import { MdPendingActions } from "react-icons/md";
+import { MdOutlineReportProblem, MdPendingActions } from "react-icons/md";
+import { IoSettingsOutline } from "react-icons/io5";
 
 export type TAdminRoutesItem = {
   index?: boolean;
@@ -43,6 +44,18 @@ export const adminRoutes = [
     icon: <MdPendingActions />,
     path: "/admin/pendingProperties",
     name: 'Pending Properties',
+    element: <AllProperties />,
+  },
+  {
+    icon: <MdOutlineReportProblem />,
+    path: "/admin/reports",
+    name: 'Reports',
+    element: <AllProperties />,
+  },
+  {
+    icon: <IoSettingsOutline />,
+    path: "/admin/settings",
+    name: 'Settings',
     element: <AllProperties />,
   },
 ];
