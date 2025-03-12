@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 
 type TUser = {
     userEmail: string;
@@ -37,3 +38,7 @@ const userSlice = createSlice({
 
 export const {setUser, userSignOut} = userSlice.actions;
 export default userSlice.reducer;
+
+
+export const useCurrentUser = (state: RootState) => state.user.user;
+export const useCurrentToken = (state: RootState) => state.user.token;

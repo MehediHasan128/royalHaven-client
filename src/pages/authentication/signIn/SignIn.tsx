@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../../styles/style.css";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { IoHome  } from "react-icons/io5";
+import { IoHome } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { FieldValues } from "react-hook-form";
 import Typography from "@mui/material/Typography";
@@ -12,14 +12,21 @@ import RInput from "../../../components/form/RInput";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import cover from "../../../assets/images/loginCover.jpg";
 import { Button, Checkbox, Divider } from "@mui/material";
+import { useSignInMutation } from "../../../redux/features/user/userApi";
 
 const SignIn = () => {
   const [showPass, setShowPass] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [btnLoading, setBtnLoading] = useState(false);
 
-  const handleLogin = (data: FieldValues) => {
-    console.log(data);
+  const [signIn, {isLoading}] = useSignInMutation();
+
+  const handleLogin = async(data: FieldValues) => {
+    try {
+      const res = await signIn(data).unwrap();
+      console.log(res);
+    }catch(err){
+      console.log(err);
+    }
   };
 
   return (
@@ -87,7 +94,7 @@ const SignIn = () => {
             <div className="space-y-4">
               <RInput
                 type="email"
-                name="email"
+                name="userEmail"
                 label="Email"
                 variant="outlined"
                 placeholder="Enter your email"
@@ -95,7 +102,7 @@ const SignIn = () => {
               <div className="relative">
                 <RInput
                   type={showPass ? "text" : "password"}
-                  name="password"
+                  name="userPassword"
                   label="Password"
                   variant="outlined"
                   placeholder="*****"
@@ -140,16 +147,16 @@ const SignIn = () => {
               </div>
             </div>
             {/* Sign in button */}
-            <div onClick={() => setBtnLoading(!btnLoading)}>
+            <button className="w-full">
               <Button
-                loading={btnLoading}
+                loading={isLoading}
                 fullWidth
                 size="large"
                 variant="contained"
               >
                 Sign In
               </Button>
-            </div>
+            </button>
           </RForm>
         </div>
 
@@ -159,9 +166,9 @@ const SignIn = () => {
             <span className="font-medium">
               Don't have an account?{" "}
               <NavLink to="/signup">
-              <span className="font-semibold text-blue-600">
-                Create an account
-              </span>
+                <span className="font-semibold text-blue-600">
+                  Create an account
+                </span>
               </NavLink>
             </span>
           </Typography>
@@ -170,11 +177,7 @@ const SignIn = () => {
       {/* Content section */}
       <div className="lg:w-[50%] md:h-screen overflow-hidden bg-cover relative">
         {/* background image */}
-        <img
-          className="w-full lg:h-auto md:bg-cover"
-          src={cover}
-          alt=""
-        />
+        <img className="w-full lg:h-auto md:bg-cover" src={cover} alt="" />
         {/* Content container */}
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center  bg-gradient-to-b md:bg-gradient-to-l from-black/75 to-black/40">
           {/* Contect section */}
@@ -182,17 +185,31 @@ const SignIn = () => {
             {/* Heading text */}
             <div className="w-[95%] md:w-[90%] lg:w-[70%] mx-auto">
               <Typography variant="h2">
-                <span className="font-semibold">Welcome to <span className="bg-gradient-to-r from-[#a0d3f8] to-[#1b9cf8] bg-clip-text text-transparent">Royal Haven</span></span>
+                <span className="font-semibold">
+                  Welcome to{" "}
+                  <span className="bg-gradient-to-r from-[#a0d3f8] to-[#1b9cf8] bg-clip-text text-transparent">
+                    Royal Haven
+                  </span>
+                </span>
               </Typography>
               <div className="my-4">
-              <Typography variant="h5">
-                <span>Your Gateway to Dream Properties!</span>
-              </Typography>
+                <Typography variant="h5">
+                  <span>Your Gateway to Dream Properties!</span>
+                </Typography>
               </div>
-              <Typography variant="body2" className="text-justify"><span>Find your perfect home or the right buyer with ease. Whether you're investing, selling, or searching for your dream space, we're here to make your journey smooth and rewarding. Log in to access exclusive listings and personalized services.</span></Typography>
+              <Typography variant="body2" className="text-justify">
+                <span>
+                  Find your perfect home or the right buyer with ease. Whether
+                  you're investing, selling, or searching for your dream space,
+                  we're here to make your journey smooth and rewarding. Log in
+                  to access exclusive listings and personalized services.
+                </span>
+              </Typography>
               <div className="mt-4">
                 <Typography variant="h5">
-                  <span className="font-semibold">Your next great property adventure starts here!</span>
+                  <span className="font-semibold">
+                    Your next great property adventure starts here!
+                  </span>
                 </Typography>
               </div>
             </div>
@@ -202,7 +219,10 @@ const SignIn = () => {
         <div className="absolute top-0 p-5 lg:p-10 cursor-pointer text-white">
           <div id="bounceBtn">
             <Typography variant="subtitle1">
-              <NavLink to='/' className="flex justify-center items-center gap-2 font-medium cursor-pointer">
+              <NavLink
+                to="/"
+                className="flex justify-center items-center gap-2 font-medium cursor-pointer"
+              >
                 <span>
                   <IoHome />
                 </span>
