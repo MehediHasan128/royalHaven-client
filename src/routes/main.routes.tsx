@@ -8,6 +8,7 @@ import AboutUs from "../pages/aboutUs/AboutUs";
 import Properties from "../pages/properties/Properties";
 import AdminLayout from "../components/layout/AdminLayout";
 import { AdminRoutes } from "./admin.routes";
+import { ProtectedRoutes } from "./protected.routes";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/admin',
-        element: <AdminLayout />,
+        element: <ProtectedRoutes><AdminLayout /></ProtectedRoutes>,
         children: AdminRoutes
     },
     {

@@ -3,7 +3,7 @@ import "../../../styles/style.css";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoHome } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FieldValues } from "react-hook-form";
 import Typography from "@mui/material/Typography";
 import RForm from "../../../components/form/RForm";
@@ -13,17 +13,24 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import cover from "../../../assets/images/loginCover.jpg";
 import { Button, Checkbox, Divider } from "@mui/material";
 import { useSignInMutation } from "../../../redux/features/user/userApi";
+import { decodedUserToken } from "../../../utils/decodedUserToken";
+import { useAppDispatch } from "../../../redux/hooks";
+import { setUser, TUser } from "../../../redux/features/user/userSlice";
 
 const SignIn = () => {
   const [showPass, setShowPass] = useState(false);
   const [checked, setChecked] = useState(false);
 
   const [signIn, {isLoading}] = useSignInMutation();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async(data: FieldValues) => {
     try {
       const res = await signIn(data).unwrap();
-      console.log(res);
+      const userData = decodedUserToken(res?.data?.accessToken) as TUser;
+      dispatch(setUser({user: userData, token: res?.data?.accessToken}));
+      navigate(`/${userData.userRole}`);
     }catch(err){
       console.log(err);
     }
