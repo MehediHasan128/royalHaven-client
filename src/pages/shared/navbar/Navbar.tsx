@@ -21,7 +21,6 @@ const Navbar = () => {
       const bannerHeight =
         document.getElementById("bannerBackground")?.clientHeight || 0;
       setIsScrolled(window.scrollY > bannerHeight);
-      console.log(window.scrollY, bannerHeight);
     };
 
     window.addEventListener("scroll", handelScroll);

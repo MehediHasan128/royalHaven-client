@@ -6,6 +6,8 @@ import { LuMessageSquareText } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 import SearchInput from "../../../components/ui/SearchInput";
 import { IoIosSearch } from "react-icons/io";
+import { useAppSelector } from "../../../redux/hooks";
+import { useCurrentUser } from "../../../redux/features/user/userSlice";
 
 const buttons = ["All", "Sell", "Rent", "Favorites", "Services"];
 
@@ -14,6 +16,8 @@ const userRole = "admin";
 const Header = () => {
   const [activeBtn, setActiveBtn] = useState("All");
   const [searchText, setSearchText] = useState<string | null>(null);
+
+  const currentUser = useAppSelector(useCurrentUser);
 
   return (
     <div className="flex items-center justify-between w-full">
@@ -77,10 +81,15 @@ const Header = () => {
               <GoBell />
             </div>
             <div className="flex items-center gap-2">
-              <Avatar alt="Remy Sharp" src="https://tinyurl.com/mpwra7w5" />
+              <Avatar alt="Remy Sharp" src={currentUser?.userProfileImage} />
               <div className="leading-0.5">
-                <Typography variant="subtitle2">Mehedi Hasan</Typography>
-                <Typography variant="caption">mehedihadan@gmail.com</Typography>
+                <Typography variant="subtitle2">
+                  {currentUser?.userName?.firstName}
+                </Typography>
+                <Typography variant="caption">
+                  <span className="font-bold">UID:</span>{" "}
+                  <span className="font-semibold text-blue-600">{currentUser?.userId}</span>
+                </Typography>
               </div>
             </div>
           </>

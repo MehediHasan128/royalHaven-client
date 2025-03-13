@@ -34,6 +34,8 @@ import {
   sellingInformation,
 } from "../../types/data";
 import { PieChart, Pie } from "recharts";
+import { useAppSelector } from "../../redux/hooks";
+import { useCurrentUser } from "../../redux/features/user/userSlice";
 
 function createData(
   title: string,
@@ -56,11 +58,14 @@ const rows = [
 ];
 
 const AdminDashboard = () => {
+
+  const currentUser = useAppSelector(useCurrentUser);
+
   return (
     <div>
       <Typography variant="h4">
         <span className="font-bold">
-          Welcome <span className="text-[#6308da]">Mehedi Hasan</span>
+          Welcome <span className="text-blue-700">{currentUser?.userName?.firstName}</span>
         </span>
       </Typography>
 
