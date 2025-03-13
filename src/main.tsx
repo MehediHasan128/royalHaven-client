@@ -7,7 +7,8 @@ import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import { PhotoProvider } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Provider } from "react-redux";
-import { store } from "./redux/store.ts";
+import { persistor, store } from "./redux/store.ts";
+import { PersistGate } from "redux-persist/integration/react";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -17,7 +18,9 @@ createRoot(document.getElementById("root")!).render(
     <PhotoProvider>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          <RouterProvider router={router} />
+          <PersistGate loading={null} persistor={persistor}>
+            <RouterProvider router={router} />
+          </PersistGate>
         </Provider>
       </ThemeProvider>
     </PhotoProvider>
