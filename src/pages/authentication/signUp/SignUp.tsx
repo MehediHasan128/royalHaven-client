@@ -3,7 +3,7 @@ import "../../../styles/style.css";
 import { IoHome } from "react-icons/io5";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FieldValues } from "react-hook-form";
 import { Button, Divider } from "@mui/material";
 import Typography from "@mui/material/Typography";
@@ -12,14 +12,37 @@ import logo from "../../../assets/images/logo.png";
 import RInput from "../../../components/form/RInput";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import cover from "../../../assets/images/loginCover.jpg";
+import { useSignUpMutation } from "../../../redux/features/user/userApi";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
-  const [btnLoading, setBtnLoading] = useState(false);
+  const [signUp, { data, error, isLoading }] = useSignUpMutation();
+  const navigate = useNavigate();
 
-  const handleSignUp = (data: FieldValues) => {
-    console.log(data);
+  const handleSignUp = async (data: FieldValues) => {
+    const userInfo = {
+      password: data?.password,
+      buyer: {
+        userName: {
+          firstName: data?.firstName,
+          lastName: data?.lastName,
+        },
+        email: data?.email,
+      },
+    };
+
+    try {
+      const res = await signUp(userInfo).unwrap();
+      if (res.statusCode === 200) {
+        navigate(`/`);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
+
+  console.log("data => ", data);
+  console.log("error => ", error);
 
   return (
     <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center bg-white">
@@ -135,16 +158,16 @@ const SignUp = () => {
               </div>
             </div>
             {/* Sign in button */}
-            <div className="my-8" onClick={() => setBtnLoading(!btnLoading)}>
+            <button type="submit" className="my-8 w-full">
               <Button
-                loading={btnLoading}
+                loading={isLoading}
                 fullWidth
                 size="large"
                 variant="contained"
               >
                 Sign Up
               </Button>
-            </div>
+            </button>
           </RForm>
         </div>
 
@@ -154,9 +177,7 @@ const SignUp = () => {
             <span className="font-medium">
               Already have an account?{" "}
               <NavLink to="/signin">
-                <span className="font-semibold text-blue-600">
-                  SignIn
-                </span>
+                <span className="font-semibold text-blue-600">SignIn</span>
               </NavLink>
             </span>
           </Typography>

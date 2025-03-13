@@ -15,7 +15,8 @@ import { Button, Checkbox, Divider } from "@mui/material";
 import { useSignInMutation } from "../../../redux/features/user/userApi";
 import { decodedUserToken } from "../../../utils/decodedUserToken";
 import { useAppDispatch } from "../../../redux/hooks";
-import { setUser, TUser } from "../../../redux/features/user/userSlice";
+import { setUser } from "../../../redux/features/user/userSlice";
+import { TUser } from "../../../constant";
 
 const SignIn = () => {
   const [showPass, setShowPass] = useState(false);
@@ -30,7 +31,7 @@ const SignIn = () => {
       const res = await signIn(data).unwrap();
       const userData = decodedUserToken(res?.data?.accessToken) as TUser;
       dispatch(setUser({user: userData, token: res?.data?.accessToken}));
-      navigate(`/${userData.userRole}`);
+      navigate(`/${userData!.userRole}`);
     }catch(err){
       console.log(err);
     }
