@@ -8,7 +8,7 @@ import AboutUs from "../pages/aboutUs/AboutUs";
 import Properties from "../pages/properties/Properties";
 import AdminLayout from "../components/layout/AdminLayout";
 import { AdminRoutes } from "./admin.routes";
-import { ProtectedRoutes } from "./protected.routes";
+import { ProtectedRoutes } from "./Protected.routes";
 
 const router = createBrowserRouter([
     {

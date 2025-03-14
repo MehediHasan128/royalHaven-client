@@ -31,7 +31,7 @@ const SignIn = () => {
       const res = await signIn(data).unwrap();
       const userData = decodedUserToken(res?.data?.accessToken) as TUser;
       dispatch(setUser({user: userData, token: res?.data?.accessToken}));
-      navigate(`/${userData!.userRole}`);
+      navigate(`${(userData?.userRole === 'admin')? "/admin" : "/"}`);
     }catch(err){
       console.log(err);
     }

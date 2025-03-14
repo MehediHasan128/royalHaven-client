@@ -16,7 +16,7 @@ import { useSignUpMutation } from "../../../redux/features/user/userApi";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
-  const [signUp, { data, error, isLoading }] = useSignUpMutation();
+  const [signUp, { isLoading }] = useSignUpMutation();
   const navigate = useNavigate();
 
   const handleSignUp = async (data: FieldValues) => {
@@ -40,9 +40,6 @@ const SignUp = () => {
       console.log(err);
     }
   };
-
-  console.log("data => ", data);
-  console.log("error => ", error);
 
   return (
     <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center bg-white">

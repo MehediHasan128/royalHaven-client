@@ -16,7 +16,7 @@ const MainPropertyContainer = ({id, setId}: { id: string | null; setId: React.Di
 
   return (
     <div>
-      <div className={`grid ${(id === null)? "grid-cols-4" : "grid-cols-3"} gap-5`}>
+      <div className={`grid ${(id === null)? "grid-cols-5" : "grid-cols-3"} gap-5`}>
         {properties?.map((property) => (
           <PropertyCard
             key={property.id}
