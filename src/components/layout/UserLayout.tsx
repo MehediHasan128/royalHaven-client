@@ -6,7 +6,7 @@ import { MdLogout } from "react-icons/md";
 import { useAppDispatch } from "../../redux/hooks";
 import { userSignOut } from "../../redux/features/user/userSlice";
 
-const AdminLayout = () => {
+const UserLayout = () => {
   const sideItems = AdminSidebar;
   const dispatch = useAppDispatch();
 
@@ -45,7 +45,10 @@ const AdminLayout = () => {
                 </NavLink>
               ))}
             </div>
-            <button onClick={handelAdminSignOut} className="flex items-center gap-2 cursor-pointer hover:scale-105 hover:translate-x-3 duration-700 bg-transparent px-4 py-2 rounded mb-1">
+            <button
+              onClick={handelAdminSignOut}
+              className="flex items-center gap-2 cursor-pointer hover:scale-105 hover:translate-x-3 duration-700 bg-transparent px-4 py-2 rounded mb-1"
+            >
               <MdLogout className="text-2xl" />
               <Typography variant="subtitle1">
                 <span className="font-semibold">Logout</span>
@@ -65,4 +68,4 @@ const AdminLayout = () => {
   );
 };
 
-export default AdminLayout;
+export default UserLayout;

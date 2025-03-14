@@ -127,7 +127,7 @@ const Navbar = () => {
                         src={user.userProfileImage}
                         alt=""
                       />
-                      <div className="border-2 p-0.5 rounded-full flex justify-center items-center bg-gray-900 absolute bottom-0 right-0">
+                      <div className={`border-2 ${isScrolled || ["/faqs", "/aboutus"].includes(path)? "border-white text-white" : ""} p-0.5 rounded-full flex justify-center items-center bg-gray-900 absolute bottom-0 right-0`}>
                         <FaAngleDown className="text-xs" />
                       </div>
                     </div>
