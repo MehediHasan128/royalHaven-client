@@ -109,25 +109,6 @@ const Navbar = () => {
             {/* sign in btn */}
             {user ? (
               <>
-                {/* <div className="flex justify-end items-center">
-                  <div className="flex items-center gap-3">
-                    <div className="text-end">
-                      <Typography variant="subtitle1">
-                        <span className="font-semibold">
-                          Jannatu Ferdous Merina
-                        </span>
-                      </Typography>
-                      <Typography variant="subtitle2">
-                        <span>UID: 5665%6hj</span>
-                      </Typography>
-                    </div>
-                    <img
-                      className="size-16 object-cover rounded-full cursor-pointer"
-                      src="https://cdn2.psychologytoday.com/assets/styles/manual_crop_4_3_1200x900/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=eaVcXTz5"
-                      alt=""
-                    />
-                  </div>
-                </div> */}
                 <div className="flex justify-end items-center gap-3">
                   <div className="text-end">
                     <Typography variant="subtitle1">
@@ -143,7 +124,7 @@ const Navbar = () => {
                     <div className="relative cursor-pointer">
                       <img
                         className="size-14 object-cover rounded-full"
-                        src="https://cdn2.psychologytoday.com/assets/styles/manual_crop_4_3_1200x900/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=eaVcXTz5"
+                        src={user.userProfileImage}
                         alt=""
                       />
                       <div className="border-2 p-0.5 rounded-full flex justify-center items-center bg-gray-900 absolute bottom-0 right-0">

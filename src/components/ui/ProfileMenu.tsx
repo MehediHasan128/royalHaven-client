@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -9,8 +8,13 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { ReactNode, useState } from "react";
-import { useAppDispatch } from "../../redux/hooks";
-import { userSignOut } from "../../redux/features/user/userSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import {
+  useCurrentUser,
+  userSignOut,
+} from "../../redux/features/user/userSlice";
+import { NavLink } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 const ProfileMenu = ({ children }: { children: ReactNode }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -22,6 +26,7 @@ const ProfileMenu = ({ children }: { children: ReactNode }) => {
     setAnchorEl(null);
   };
 
+  const currentUser = useAppSelector(useCurrentUser);
   const dispatch = useAppDispatch();
 
   const handleUserSignOut = () => {
@@ -74,7 +79,10 @@ const ProfileMenu = ({ children }: { children: ReactNode }) => {
         disableScrollLock={true}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> My Profile
+          <NavLink to="/signin" className="flex items-center gap-2 w-full">
+            <img className="size-12 object-cover rounded-full" src={currentUser?.userProfileImage} alt="" />
+            <Typography variant="h6"><span className="text-md font-semibold">My Profile</span></Typography>
+          </NavLink>
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>
