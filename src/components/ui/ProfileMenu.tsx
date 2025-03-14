@@ -79,7 +79,7 @@ const ProfileMenu = ({ children }: { children: ReactNode }) => {
         disableScrollLock={true}
       >
         <MenuItem onClick={handleClose}>
-          <NavLink to="/signin" className="flex items-center gap-2 w-full">
+          <NavLink to={`/${currentUser?.userRole}`} className="flex items-center gap-2 w-full">
             <img className="size-12 object-cover rounded-full" src={currentUser?.userProfileImage} alt="" />
             <Typography variant="h6"><span className="text-md font-semibold">My Profile</span></Typography>
           </NavLink>

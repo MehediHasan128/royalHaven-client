@@ -3,12 +3,34 @@ import Header from "../../pages/properties/Header/Header";
 import { Typography } from "@mui/material";
 import { AdminSidebar } from "../../routes/admin.routes";
 import { MdLogout } from "react-icons/md";
-import { useAppDispatch } from "../../redux/hooks";
-import { userSignOut } from "../../redux/features/user/userSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useCurrentUser, userSignOut } from "../../redux/features/user/userSlice";
+import { BuyerSidebar } from "../../routes/buyer.routes";
+
+const Role = {
+  ADMIN: "admin",
+  BUYER: "buyer"
+}
 
 const UserLayout = () => {
-  const sideItems = AdminSidebar;
+  const currentUser = useAppSelector(useCurrentUser);
   const dispatch = useAppDispatch();
+
+  const role = `${currentUser?.userRole}`;
+  let sidebarItems;
+  
+  switch (role) {
+    case Role.ADMIN:
+      sidebarItems = AdminSidebar
+      break;
+    case Role.BUYER:
+      sidebarItems = BuyerSidebar
+      break;
+  
+    default:
+      break;
+  }
+  
 
   const handelAdminSignOut = () => {
     dispatch(userSignOut());
@@ -26,7 +48,7 @@ const UserLayout = () => {
         <aside className="w-64 h-full fixed left-0 top-20 shadow-lg px-2 pt-5 pb-24">
           <div className="h-full overflow-y-auto overflow-x-hidden text-gray-700 flex flex-col">
             <div className="space-y-2 flex-grow">
-              {sideItems.map((item) => (
+              {sidebarItems!.map((item) => (
                 <NavLink
                   to={item.path}
                   key={item.key}

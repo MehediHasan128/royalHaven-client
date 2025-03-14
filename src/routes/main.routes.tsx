@@ -9,6 +9,7 @@ import Properties from "../pages/properties/Properties";
 import UserLayout from "../components/layout/UserLayout";
 import { AdminRoutes } from "./admin.routes";
 import { ProtectedRoutes } from "./Protected.routes";
+import { BuyerRoutes } from "./buyer.routes";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
       </ProtectedRoutes>
     ),
     children: AdminRoutes,
+  },
+  {
+    path: "/buyer",
+    element: <UserLayout />,
+    children: BuyerRoutes
   },
   {
     path: "/signin",

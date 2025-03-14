@@ -2,7 +2,10 @@ import AdminDashboard from "../pages/admin/AdminDashboard";
 import Users from "../pages/admin/allUsers/Users";
 import { AiOutlineHome } from "react-icons/ai";
 import { ReactNode } from "react";
-import { generateAdminRoutes, generateAdminSidebar } from "../utils/generateAdminRoutesAndSidebar";
+import {
+  generateUserRoutes,
+  generateUserSidebar,
+} from "../utils/generateUserRoutesAndSidebar";
 import { PiUsersThreeLight } from "react-icons/pi";
 import { LuLayoutDashboard } from "react-icons/lu";
 import AllProperties from "../pages/admin/allProperties/AllProperties";
@@ -25,40 +28,40 @@ export const adminRoutes = [
   {
     icon: <LuLayoutDashboard />,
     path: "/admin/dashboard",
-    name: 'Dashboard',
+    name: "Dashboard",
     element: <AdminDashboard />,
   },
   {
     icon: <PiUsersThreeLight />,
     path: "/admin/users",
-    name: 'Users',
+    name: "Users",
     element: <Users />,
   },
   {
     icon: <AiOutlineHome />,
     path: "/admin/properties",
-    name: 'Properties',
+    name: "Properties",
     element: <AllProperties />,
   },
   {
     icon: <MdPendingActions />,
     path: "/admin/pendingProperties",
-    name: 'Pending Properties',
+    name: "Pending Properties",
     element: <AllProperties />,
   },
   {
     icon: <MdOutlineReportProblem />,
     path: "/admin/reports",
-    name: 'Reports',
+    name: "Reports",
     element: <AllProperties />,
   },
   {
     icon: <IoSettingsOutline />,
     path: "/admin/settings",
-    name: 'Settings',
+    name: "Settings",
     element: <AllProperties />,
   },
 ];
 
-export const AdminRoutes = generateAdminRoutes(adminRoutes);
-export const AdminSidebar = generateAdminSidebar(adminRoutes);
+export const AdminRoutes = generateUserRoutes(adminRoutes);
+export const AdminSidebar = generateUserSidebar(adminRoutes);
