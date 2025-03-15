@@ -104,7 +104,6 @@ const Users = () => {
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
               <TableHeading tableHeading={tableHEading} />
-
               <UsersTableData tableData={userData} />
             </Table>
           </TableContainer>

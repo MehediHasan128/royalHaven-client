@@ -6,7 +6,7 @@ const FavoriteProperty = () => {
     <div>
       <div>
         <Typography variant="h4">
-          <span className="font-semibold">Favorite Properties</span>
+          <span className="font-semibold">Favourite Properties</span>
         </Typography>
         <Typography variant="body2">
           <span className="text-gray-700 font-medium">
