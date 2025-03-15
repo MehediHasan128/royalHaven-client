@@ -26,6 +26,7 @@ const RInput = ({ type, name, placeholder, variant, required, label, defaultValu
             fullWidth
             required={required}
             placeholder={placeholder}
+            disabled={label==='UID'}
           />
         )}
       />

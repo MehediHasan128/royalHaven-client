@@ -1,4 +1,3 @@
-import Users from "../pages/admin/allUsers/Users";
 import { ReactNode } from "react";
 import {
   generateUserRoutes,
@@ -14,6 +13,8 @@ import {
 import { IoBookmarkOutline } from "react-icons/io5";
 import { GoCodeReview } from "react-icons/go";
 import Profile from "../pages/buyer/Profile/Profile";
+import Queries from "../pages/buyer/Queries/Queries";
+import FavoriteProperty from "../pages/buyer/FavoriteProperty/FavoriteProperty";
 
 export type TAdminRoutesItem = {
   index?: boolean;
@@ -38,13 +39,13 @@ export const buyerRoutes = [
     icon: <MdOutlineQueryStats />,
     path: "/buyer/queries",
     name: "Queries",
-    element: <Users />,
+    element: <Queries />,
   },
   {
     icon: <MdOutlineFavoriteBorder />,
     path: "/buyer/favouriteProperties",
     name: "Favourite Properties",
-    element: <AllProperties />,
+    element: <FavoriteProperty />,
   },
   {
     icon: <IoBookmarkOutline />,
