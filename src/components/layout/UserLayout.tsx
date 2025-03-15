@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import Header from "../../pages/properties/Header/Header";
 import { Typography } from "@mui/material";
 import { AdminSidebar } from "../../routes/admin.routes";
@@ -15,6 +15,7 @@ const Role = {
 const UserLayout = () => {
   const currentUser = useAppSelector(useCurrentUser);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const role = `${currentUser?.userRole}`;
   let sidebarItems;
@@ -34,6 +35,7 @@ const UserLayout = () => {
 
   const handelAdminSignOut = () => {
     dispatch(userSignOut());
+    navigate('/')
   };
 
   return (
