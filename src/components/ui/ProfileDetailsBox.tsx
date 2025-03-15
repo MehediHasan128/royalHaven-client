@@ -1,5 +1,6 @@
 import { Divider, Typography } from "@mui/material";
 import { FiEdit } from "react-icons/fi";
+import ProfileDetailsEditModal from "./ProfileDetailsEditModal";
 
 export type TUserDataProps = {
   title: string;
@@ -19,13 +20,15 @@ const ProfileDetailsBox = ({
         <Typography variant="h6">
           <span className="font-bold">{boxTitle}</span>
         </Typography>
-        <button className="border border-gray-400 text-gray-600 rounded-full px-4 py-1">
-          <Typography variant="subtitle1">
-            <span className="flex items-center gap-2 font-medium">
-              <FiEdit className="text-lg" /> Edit
-            </span>
-          </Typography>
-        </button>
+        <ProfileDetailsEditModal userData={userData}>
+          <button className="border border-gray-400 text-gray-600 rounded-full px-4 py-1 cursor-pointer">
+            <Typography variant="subtitle1">
+              <span className="flex items-center gap-2 font-medium">
+                <FiEdit className="text-lg" /> Edit
+              </span>
+            </Typography>
+          </button>
+        </ProfileDetailsEditModal>
       </div>
 
       <div className="my-5">
@@ -34,8 +37,8 @@ const ProfileDetailsBox = ({
 
       <div className="w-[50%]">
         <div className="grid grid-cols-2 gap-5">
-          {userData?.map((data) => (
-            <div>
+          {userData?.map((data, idx) => (
+            <div key={idx}>
               <Typography variant="body2">
                 <span className="font-medium text-gray-600">{data?.title}</span>
               </Typography>

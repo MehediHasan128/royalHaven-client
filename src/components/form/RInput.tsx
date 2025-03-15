@@ -8,13 +8,15 @@ type TInputProps = {
   placeholder?: string;
   variant: 'filled' | 'outlined' | 'standard';
   required?: boolean;
+  defaultValue?: string | number
 };
 
-const RInput = ({ type, name, placeholder, variant, required, label }: TInputProps) => {
+const RInput = ({ type, name, placeholder, variant, required, label, defaultValue }: TInputProps) => {
   return (
     <div>
       <Controller
         name={name}
+        defaultValue={defaultValue}
         render={({ field }) => (
           <TextField
             {...field}

@@ -23,10 +23,10 @@ const Profile = () => {
   const addressData = [
     { title: "Street Address", value: "Road-10, Sector-4" },
     { title: "City", value: "Uttara, Dhaka" },
-    { title: "Posatal Code", value: "1230" },
+    { title: "Posatal Code", value: "ERT 1230" },
     { title: "State", value: "Dhaka" },
     { title: "Country", value: "Bangladesh" },
-  ]
+  ];
 
   return (
     <div className="min-h-screen">
@@ -38,19 +38,16 @@ const Profile = () => {
           </span>
         </Typography>
         <div className="space-x-3">
-          <button className="border-2 border-[#002C54] px-4 py-2 text-[#002C54] rounded-lg cursor-pointer hover:-translate-x-2 duration-700">
-            <Typography variant="subtitle2">
-              <span>Edit Profile</span>
-            </Typography>
-          </button>
-          <button className="border-2 border-[#002C54] bg-[#002C54] px-4 py-2 text-white rounded-lg cursor-pointer hover:translate-x-2 duration-700">
+          <button className="border-2 border-[#002C54] bg-[#002C54] px-4 py-2 text-white rounded-lg cursor-pointer hover:-translate-x-2 duration-700">
             <Typography variant="subtitle2">
               <span>Update Password</span>
             </Typography>
           </button>
         </div>
       </div>
+
       <Divider />
+
       <div className="mt-5 flex gap-5">
         <div className="w-[25%]">
           <div className="h-72 rounded-xl">
@@ -100,6 +97,7 @@ const Profile = () => {
             </Typography>
           </div>
         </div>
+
         <div className="w-full space-y-5">
           <div className="border border-gray-300 h-72 p-5 rounded-lg overflow-hidden">
             <ProfileDetailsBox
