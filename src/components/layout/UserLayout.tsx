@@ -4,13 +4,17 @@ import { Typography } from "@mui/material";
 import { AdminSidebar } from "../../routes/admin.routes";
 import { MdLogout } from "react-icons/md";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { useCurrentUser, userSignOut } from "../../redux/features/user/userSlice";
+import {
+  useCurrentUser,
+  userSignOut,
+} from "../../redux/features/user/userSlice";
 import { BuyerSidebar } from "../../routes/buyer.routes";
+import { IoHomeOutline } from "react-icons/io5";
 
 const Role = {
   ADMIN: "admin",
-  BUYER: "buyer"
-}
+  BUYER: "buyer",
+};
 
 const UserLayout = () => {
   const currentUser = useAppSelector(useCurrentUser);
@@ -19,23 +23,22 @@ const UserLayout = () => {
 
   const role = `${currentUser?.userRole}`;
   let sidebarItems;
-  
+
   switch (role) {
     case Role.ADMIN:
-      sidebarItems = AdminSidebar
+      sidebarItems = AdminSidebar;
       break;
     case Role.BUYER:
-      sidebarItems = BuyerSidebar
+      sidebarItems = BuyerSidebar;
       break;
-  
+
     default:
       break;
   }
-  
 
   const handelAdminSignOut = () => {
     dispatch(userSignOut());
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -69,6 +72,19 @@ const UserLayout = () => {
                 </NavLink>
               ))}
             </div>
+            {currentUser?.userRole !== "admin" ? (
+              <NavLink
+                to="/"
+                className="flex items-center gap-2 cursor-pointer hover:scale-105 hover:translate-x-3 duration-700 bg-transparent px-4 py-2 rounded mb-1"
+              >
+                <IoHomeOutline className="text-2xl" />
+                <Typography variant="subtitle1">
+                  <span className="font-semibold">Return Home</span>
+                </Typography>
+              </NavLink>
+            ) : (
+              <></>
+            )}
             <button
               onClick={handelAdminSignOut}
               className="flex items-center gap-2 cursor-pointer hover:scale-105 hover:translate-x-3 duration-700 bg-transparent px-4 py-2 rounded mb-1"

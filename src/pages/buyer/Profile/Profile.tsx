@@ -8,6 +8,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import ProfileDetailsBox, {
   TUserDataProps,
 } from "../../../components/ui/ProfileDetailsBox";
+import CreateSellerModal from "./CreateSellerModal";
 
 const Profile = () => {
   const user = useAppSelector(useCurrentUser);
@@ -37,7 +38,12 @@ const Profile = () => {
             {user?.userName?.firstName}
           </span>
         </Typography>
-        <div className="space-x-3">
+        <div className="flex space-x-3">
+          <CreateSellerModal>
+            <Typography variant="subtitle2">
+              <span>Make Seller Profile</span>
+            </Typography>
+          </CreateSellerModal>
           <button className="border-2 border-[#002C54] bg-[#002C54] px-4 py-2 text-white rounded-lg cursor-pointer hover:-translate-x-2 duration-700">
             <Typography variant="subtitle2">
               <span>Update Password</span>

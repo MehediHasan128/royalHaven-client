@@ -1,4 +1,4 @@
-import { Avatar, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import logo from "../../../assets/images/logo.png";
 import { useState } from "react";
 import { GoBell } from "react-icons/go";
@@ -75,7 +75,7 @@ const Header = () => {
                 <GoBell />
               </div>
               <div className="flex flex-grow items-center gap-2">
-                <Avatar alt="Remy Sharp" src={currentUser?.userProfileImage} />
+                <img className="size-11 object-cover rounded-full" src={currentUser?.userProfileImage} alt="" />
                 <div className="leading-0.5">
                   <Typography variant="subtitle2">
                     {currentUser?.userName?.firstName}
