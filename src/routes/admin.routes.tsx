@@ -11,6 +11,8 @@ import { LuLayoutDashboard } from "react-icons/lu";
 import AllProperties from "../pages/admin/allProperties/AllProperties";
 import { MdOutlineReportProblem, MdPendingActions } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
+import PendingSeller from "../components/icons/PendingSeller";
+import SellerRequest from "../pages/admin/sellerRequest/SellerRequest";
 
 export type TAdminRoutesItem = {
   index?: boolean;
@@ -36,6 +38,12 @@ export const adminRoutes = [
     path: "/admin/users",
     name: "Users",
     element: <Users />,
+  },
+  {
+    icon: <PendingSeller />,
+    path: "/admin/sellerReqest",
+    name: "Seller Request",
+    element: <SellerRequest />,
   },
   {
     icon: <AiOutlineHome />,

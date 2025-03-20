@@ -6,7 +6,6 @@ import RForm from "../../../components/form/RForm";
 import { FieldValues } from "react-hook-form";
 import RInput from "../../../components/form/RInput";
 import { Divider } from "@mui/material";
-import RMultipleSelect from "../../../components/form/RMultipleSelect";
 
 const style = {
   position: "absolute",

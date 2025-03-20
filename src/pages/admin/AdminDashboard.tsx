@@ -36,6 +36,7 @@ import {
 import { PieChart, Pie } from "recharts";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/user/userSlice";
+import PendingSeller from "../../components/icons/PendingSeller";
 
 function createData(
   title: string,
@@ -411,7 +412,7 @@ const AdminDashboard = () => {
             </ResponsiveContainer>
           </div>
           <div className="col-span-3 bg-white rounded-2xl shadow-lg p-2">
-            <h1>This is </h1>
+            <PendingSeller />
           </div>
         </div>
       </div>
