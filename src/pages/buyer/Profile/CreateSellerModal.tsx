@@ -50,8 +50,8 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
     sellerReq(sellerReqestData);
   };
 
-  console.log('data => ', data);
-  console.log('error => ', error);
+  // console.log('data => ', data);
+  // console.log('error => ', error);
 
   return (
     <div>

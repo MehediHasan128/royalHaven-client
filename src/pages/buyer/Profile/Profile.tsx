@@ -13,7 +13,7 @@ import male from "../../../assets/images/male.png";
 import female from "../../../assets/images/female.png";
 import { useGetBuyerInfoQuery } from "../../../redux/features/buyer/buyerApi";
 import { IoMdAddCircleOutline } from "react-icons/io";
-import UploadImage from "../../../components/ui/UploadImage";
+import ImageUploadModal from "../../../components/ui/ImageUploadModal";
 
 const Profile = () => {
   const user = useAppSelector(useCurrentUser);
@@ -127,16 +127,16 @@ const Profile = () => {
               </>
             ) : (
               <>
-                <UploadImage>
-                  <div className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer">
+                <ImageUploadModal>
+                  <button className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer">
                     <Typography variant="subtitle2">
                       <span className="flex items-center gap-2">
                         <IoMdAddCircleOutline className="text-xl" /> Add Profile
                         Picture
                       </span>
                     </Typography>
-                  </div>
-                </UploadImage>
+                  </button>
+                </ImageUploadModal>
               </>
             )}
           </div>

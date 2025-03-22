@@ -14,9 +14,16 @@ const buyerApi = baseApi.injectEndpoints({
                 method: 'PATCH',
                 body: updeatedData
             })
+        }),
+        uploadUserProfilePicture: builder.mutation({
+            query: ([imageFile, uid]) => ({
+                url: `/users/uploadImage/${uid}`,
+                method: "POST",
+                body: imageFile
+            })
         })
     })
 });
 
 
-export const {useGetBuyerInfoQuery, useUpdateBuyerInfoMutation} = buyerApi;
+export const {useGetBuyerInfoQuery, useUpdateBuyerInfoMutation, useUploadUserProfilePictureMutation} = buyerApi;
