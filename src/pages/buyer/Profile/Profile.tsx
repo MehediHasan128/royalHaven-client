@@ -9,24 +9,28 @@ import ProfileDetailsBox, {
   TUserDataProps,
 } from "../../../components/ui/ProfileDetailsBox";
 import CreateSellerModal from "./CreateSellerModal";
+// import male from '../../../assets/images/male.png';
+import female from '../../../assets/images/female.png';
+import { useGetBuyerInfoQuery } from "../../../redux/features/buyer/buyerApi";
 
 const Profile = () => {
   const user = useAppSelector(useCurrentUser);
+  const {data} = useGetBuyerInfoQuery(user?.userId);
+  const buyerData = data?.data;
+  console.log(buyerData);
 
   const personalData = [
-    { title: "First Name", value: user?.userName?.firstName },
-    { title: "Last Name", value: user?.userName?.lastName },
-    { title: "Email Address", value: user?.userEmail },
-    { title: "Phone Number", value: "+8801753648598" },
-    { title: "Role", value: user?.userRole },
-    { title: "UID", value: user?.userId },
+    { title: "First Name", value: buyerData?.userName?.firstName, fieldName: "firstName" },
+    { title: "Last Name", value: buyerData?.userName?.lastName, fieldName: "lastName" },
+    { title: "Email Address", value: buyerData?.email, fieldName: "email" },
+    { title: "Phone Number", value: buyerData?.contactNumber, fieldName: "contactNumber" },
   ];
   const addressData = [
-    { title: "Street Address", value: "Road-10, Sector-4" },
-    { title: "City", value: "Uttara, Dhaka" },
-    { title: "Posatal Code", value: "ERT 1230" },
-    { title: "State", value: "Dhaka" },
-    { title: "Country", value: "Bangladesh" },
+    { title: "Street Address", value: buyerData?.address?.streetAddress, fieldName: "address.streetAddress" },
+    { title: "City", value: buyerData?.address?.city, fieldName: "address.city" },
+    { title: "Posatal Code", value: buyerData?.address?.postalCode, fieldName: "address.postalCode" },
+    { title: "State", value: buyerData?.address?.state, fieldName: "address.state" },
+    { title: "Country", value: buyerData?.address?.country, fieldName: "address.country" }
   ];
 
   return (
@@ -40,15 +44,19 @@ const Profile = () => {
         </Typography>
         <div className="flex space-x-3">
           <CreateSellerModal>
+
             <Typography variant="subtitle2">
               <span>Make Seller Profile</span>
             </Typography>
+
           </CreateSellerModal>
+
           <button className="border-2 border-[#002C54] bg-[#002C54] px-4 py-2 text-white rounded-lg cursor-pointer hover:-translate-x-2 duration-700">
             <Typography variant="subtitle2">
               <span>Update Password</span>
             </Typography>
           </button>
+
         </div>
       </div>
 
@@ -58,8 +66,10 @@ const Profile = () => {
         <div className="w-[25%]">
           <div className="h-72 rounded-xl">
             <img
-              className="w-full h-full object-cover rounded-xl"
-              src={user?.userProfileImage}
+              className="w-full h-full rounded-xl border"
+              src={
+                (user?.userProfileImage) ? user?.userProfileImage : female
+              }
               alt=""
             />
           </div>

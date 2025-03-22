@@ -5,6 +5,7 @@ import ProfileDetailsEditModal from "./ProfileDetailsEditModal";
 export type TUserDataProps = {
   title: string;
   value: string;
+  fieldName: string;
 }[];
 
 const ProfileDetailsBox = ({
@@ -14,6 +15,7 @@ const ProfileDetailsBox = ({
   boxTitle: string;
   userData: TUserDataProps;
 }) => {
+
   return (
     <>
       <div className="flex justify-between items-center">
@@ -43,7 +45,7 @@ const ProfileDetailsBox = ({
                 <span className="font-medium text-gray-600">{data?.title}</span>
               </Typography>
               <Typography variant="body1">
-                <span className="font-medium">{data?.value}</span>
+                <span className="font-medium">{(data?.value)? data?.value : "_ _ _ _ _"}</span>
               </Typography>
             </div>
           ))}

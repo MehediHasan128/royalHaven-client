@@ -25,11 +25,13 @@ const ProfileDetailsEditModal = ({
   children: ReactNode;
   userData: TUserDataProps;
 }) => {
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleUpdateInformation = (data: FieldValues) => {
+    
     console.log(data);
 
     handleClose();
@@ -61,7 +63,7 @@ const ProfileDetailsEditModal = ({
                   <div key={idx}>
                     <RInput
                       type="text"
-                      name={data.title}
+                      name={data.fieldName}
                       label={data.title}
                       variant="outlined"
                       defaultValue={data.value}
