@@ -7,9 +7,16 @@ const buyerApi = baseApi.injectEndpoints({
                 url: `/buyer/${uid}`,
                 method: 'GET'
             })
+        }),
+        updateBuyerInfo: builder.mutation({
+            query: ([updeatedData, uid]) => ({
+                url: `/buyer/addBuyerInfo/${uid}`,
+                method: 'PATCH',
+                body: updeatedData
+            })
         })
     })
 });
 
 
-export const {useGetBuyerInfoQuery} = buyerApi;
+export const {useGetBuyerInfoQuery, useUpdateBuyerInfoMutation} = buyerApi;

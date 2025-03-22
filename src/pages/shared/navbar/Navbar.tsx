@@ -113,11 +113,11 @@ const Navbar = () => {
                   <div className="text-end">
                     <Typography variant="subtitle1">
                       <span className="font-semibold">
-                        Jannatu Ferdous Merina
+                        {user?.userName?.firstName} {user?.userName?.lastName}
                       </span>
                     </Typography>
                     <Typography variant="subtitle2">
-                      <span>UID: 5665%6hj</span>
+                      <span>UID: {user?.userId}</span>
                     </Typography>
                   </div>
                   <ProfileMenu>

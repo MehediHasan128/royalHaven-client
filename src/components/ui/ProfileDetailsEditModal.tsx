@@ -6,6 +6,9 @@ import { Divider, Typography } from "@mui/material";
 import RForm from "../form/RForm";
 import RInput from "../form/RInput";
 import { FieldValues } from "react-hook-form";
+import { useUpdateBuyerInfoMutation } from "../../redux/features/buyer/buyerApi";
+import { useAppSelector } from "../../redux/hooks";
+import { useCurrentUser } from "../../redux/features/user/userSlice";
 
 const style = {
   position: "absolute",
@@ -26,16 +29,22 @@ const ProfileDetailsEditModal = ({
   userData: TUserDataProps;
 }) => {
 
+  const currentUser = useAppSelector(useCurrentUser)
+  console.log(currentUser?.userId);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [updateBuyerInfo, {data}] = useUpdateBuyerInfoMutation();
 
   const handleUpdateInformation = (data: FieldValues) => {
     
-    console.log(data);
+    updateBuyerInfo([data, currentUser?.userId]);
 
     handleClose();
   };
+
+  console.log(data);
 
   return (
     <div>

@@ -9,29 +9,63 @@ import ProfileDetailsBox, {
   TUserDataProps,
 } from "../../../components/ui/ProfileDetailsBox";
 import CreateSellerModal from "./CreateSellerModal";
-// import male from '../../../assets/images/male.png';
-import female from '../../../assets/images/female.png';
+import male from '../../../assets/images/male.png';
+import female from "../../../assets/images/female.png";
 import { useGetBuyerInfoQuery } from "../../../redux/features/buyer/buyerApi";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 const Profile = () => {
   const user = useAppSelector(useCurrentUser);
-  const {data} = useGetBuyerInfoQuery(user?.userId);
+  const { data } = useGetBuyerInfoQuery(user?.userId);
   const buyerData = data?.data;
-  console.log(buyerData);
 
   const personalData = [
-    { title: "First Name", value: buyerData?.userName?.firstName, fieldName: "firstName" },
-    { title: "Last Name", value: buyerData?.userName?.lastName, fieldName: "lastName" },
+    {
+      title: "First Name",
+      value: buyerData?.userName?.firstName,
+      fieldName: "firstName",
+    },
+    {
+      title: "Last Name",
+      value: buyerData?.userName?.lastName,
+      fieldName: "lastName",
+    },
     { title: "Email Address", value: buyerData?.email, fieldName: "email" },
-    { title: "Phone Number", value: buyerData?.contactNumber, fieldName: "contactNumber" },
+    {
+      title: "Phone Number",
+      value: buyerData?.contactNumber,
+      fieldName: "contactNumber",
+    },
   ];
   const addressData = [
-    { title: "Street Address", value: buyerData?.address?.streetAddress, fieldName: "address.streetAddress" },
-    { title: "City", value: buyerData?.address?.city, fieldName: "address.city" },
-    { title: "Posatal Code", value: buyerData?.address?.postalCode, fieldName: "address.postalCode" },
-    { title: "State", value: buyerData?.address?.state, fieldName: "address.state" },
-    { title: "Country", value: buyerData?.address?.country, fieldName: "address.country" }
+    {
+      title: "Street Address",
+      value: buyerData?.address?.streetAddress,
+      fieldName: "address.streetAddress",
+    },
+    {
+      title: "City",
+      value: buyerData?.address?.city,
+      fieldName: "address.city",
+    },
+    {
+      title: "Posatal Code",
+      value: buyerData?.address?.postalCode,
+      fieldName: "address.postalCode",
+    },
+    {
+      title: "State",
+      value: buyerData?.address?.state,
+      fieldName: "address.state",
+    },
+    {
+      title: "Country",
+      value: buyerData?.address?.country,
+      fieldName: "address.country",
+    },
   ];
+  const profile = (buyerData?.gender === 'male')? male : female
+  
 
   return (
     <div className="min-h-screen">
@@ -44,11 +78,9 @@ const Profile = () => {
         </Typography>
         <div className="flex space-x-3">
           <CreateSellerModal>
-
             <Typography variant="subtitle2">
               <span>Make Seller Profile</span>
             </Typography>
-
           </CreateSellerModal>
 
           <button className="border-2 border-[#002C54] bg-[#002C54] px-4 py-2 text-white rounded-lg cursor-pointer hover:-translate-x-2 duration-700">
@@ -56,7 +88,6 @@ const Profile = () => {
               <span>Update Password</span>
             </Typography>
           </button>
-
         </div>
       </div>
 
@@ -67,27 +98,40 @@ const Profile = () => {
           <div className="h-72 rounded-xl">
             <img
               className="w-full h-full rounded-xl border"
-              src={
-                (user?.userProfileImage) ? user?.userProfileImage : female
-              }
+              src={user?.userProfileImage ? user?.userProfileImage : profile}
               alt=""
             />
           </div>
           <div className="my-5 flex justify-between items-center">
-            <button className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer">
-              <Typography variant="subtitle2">
-                <span className="flex items-center gap-2">
-                  <FiEdit className="text-lg" /> Change Picture
-                </span>
-              </Typography>
-            </button>
-            <button className="border-2 border-[#002C54] text-white bg-[#002C54] rounded-md px-3 py-2 cursor-pointer">
-              <Typography variant="subtitle2">
-                <span className="flex items-center gap-2">
-                  <AiOutlineDelete className="text-lg" /> Delete Picture
-                </span>
-              </Typography>
-            </button>
+            {user?.userProfileImage ? (
+              <>
+                <button className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer">
+                  <Typography variant="subtitle2">
+                    <span className="flex items-center gap-2">
+                      <FiEdit className="text-lg" /> Change Picture
+                    </span>
+                  </Typography>
+                </button>
+                <button className="border-2 border-[#002C54] text-white bg-[#002C54] rounded-md px-3 py-2 cursor-pointer">
+                  <Typography variant="subtitle2">
+                    <span className="flex items-center gap-2">
+                      <AiOutlineDelete className="text-lg" /> Delete Picture
+                    </span>
+                  </Typography>
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer">
+                  <Typography variant="subtitle2">
+                    <span className="flex items-center gap-2">
+                      <IoMdAddCircleOutline className="text-xl" /> Add Profile
+                      Picture
+                    </span>
+                  </Typography>
+                </button>
+              </>
+            )}
           </div>
           <div>
             <Typography variant="h5">
