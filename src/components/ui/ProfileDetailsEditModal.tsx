@@ -30,12 +30,11 @@ const ProfileDetailsEditModal = ({
 }) => {
 
   const currentUser = useAppSelector(useCurrentUser)
-  console.log(currentUser?.userId);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [updateBuyerInfo, {data}] = useUpdateBuyerInfoMutation();
+  const [updateBuyerInfo] = useUpdateBuyerInfoMutation();
 
   const handleUpdateInformation = (data: FieldValues) => {
     
@@ -43,8 +42,6 @@ const ProfileDetailsEditModal = ({
 
     handleClose();
   };
-
-  console.log(data);
 
   return (
     <div>

@@ -6,6 +6,9 @@ import RForm from "../../../components/form/RForm";
 import { FieldValues } from "react-hook-form";
 import RInput from "../../../components/form/RInput";
 import { Divider } from "@mui/material";
+import { useAppSelector } from "../../../redux/hooks";
+import { useCurrentUser } from "../../../redux/features/user/userSlice";
+import { useGetBuyerInfoQuery } from "../../../redux/features/buyer/buyerApi";
 
 const style = {
   position: "absolute",
@@ -23,8 +26,21 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const user = useAppSelector(useCurrentUser);
+  const { data } = useGetBuyerInfoQuery(user?.userId);
+  const buyerData = data?.data; 
+
   const handleCreateSellerAccount = (data: FieldValues) => {
-    console.log(data);
+    const sellerReq = {
+      id: buyerData?.id,
+      userName: buyerData?.userName,
+      profileUniqueUserName: data?.profileUniqueUserName,
+      email: buyerData?.email,
+      profileImage: buyerData?.profileImage,
+      gender: buyerData?.gender,
+      
+    };
+    console.log(sellerReq);
   };
 
   return (
@@ -55,7 +71,7 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
 
               <RInput
                 type="text"
-                name="userName"
+                name="profileUniqueUserName"
                 label="User name"
                 placeholder="Enter user name"
                 variant="outlined"
@@ -85,7 +101,7 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
                 />
                 <RInput
                   type="text"
-                  name="licenseNumber"
+                  name="licenceNumber"
                   label="License Number"
                   placeholder="Enter license number"
                   variant="outlined"
@@ -105,7 +121,7 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
               <div>
                 <RInput
                   type="text"
-                  name="governmentID"
+                  name="identityNumber"
                   label="Passport/Driving License/National ID"
                   placeholder="Enter passport, driving license or national id number"
                   variant="outlined"
@@ -114,7 +130,14 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
               </div>
 
               <div className="my-5">
-                <button type="submit" className="border px-5 py-2 rounded-lg cursor-pointer"><Typography variant="button"><span className="font-semibold">Submit</span></Typography></button>
+                <button
+                  type="submit"
+                  className="border px-5 py-2 rounded-lg cursor-pointer"
+                >
+                  <Typography variant="button">
+                    <span className="font-semibold">Submit</span>
+                  </Typography>
+                </button>
               </div>
             </div>
           </RForm>

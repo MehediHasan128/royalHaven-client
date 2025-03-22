@@ -13,6 +13,7 @@ import RInput from "../../../components/form/RInput";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import cover from "../../../assets/images/loginCover.jpg";
 import { useSignUpMutation } from "../../../redux/features/user/userApi";
+import RSelect from "../../../components/form/RSelect";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
@@ -28,6 +29,7 @@ const SignUp = () => {
           lastName: data?.lastName,
         },
         email: data?.email,
+        gender: data?.gender,
       },
     };
 
@@ -120,6 +122,9 @@ const SignUp = () => {
                   placeholder="Enter your last name"
                 />
               </div>
+
+              <RSelect name="gender" label="Gender" />
+
               <RInput
                 type="email"
                 name="email"
