@@ -9,6 +9,7 @@ import { Divider } from "@mui/material";
 import { useAppSelector } from "../../../redux/hooks";
 import { useCurrentUser } from "../../../redux/features/user/userSlice";
 import { useGetBuyerInfoQuery } from "../../../redux/features/buyer/buyerApi";
+import { useSellerReqMutation } from "../../../redux/features/seller/sellerApi";
 
 const style = {
   position: "absolute",
@@ -27,21 +28,30 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
   const handleClose = () => setOpen(false);
 
   const user = useAppSelector(useCurrentUser);
-  const { data } = useGetBuyerInfoQuery(user?.userId);
-  const buyerData = data?.data; 
+  const { data: userData } = useGetBuyerInfoQuery(user?.userId);
+  const buyerData = userData?.data;
+  const [sellerReq, {data, error}] = useSellerReqMutation();
 
   const handleCreateSellerAccount = (data: FieldValues) => {
-    const sellerReq = {
+    const sellerReqestData = {
       id: buyerData?.id,
       userName: buyerData?.userName,
       profileUniqueUserName: data?.profileUniqueUserName,
       email: buyerData?.email,
       profileImage: buyerData?.profileImage,
       gender: buyerData?.gender,
-      
+      contactNumber: buyerData?.contactNumber,
+      address: buyerData?.address,
+      companyName: data?.companyName,
+      websiteLink: data?.websiteLink,
+      licenceNumber: data?.licenceNumber,
+      identityNumber: data?.identityNumber,
     };
-    console.log(sellerReq);
+    sellerReq(sellerReqestData);
   };
+
+  console.log('data => ', data);
+  console.log('error => ', error);
 
   return (
     <div>

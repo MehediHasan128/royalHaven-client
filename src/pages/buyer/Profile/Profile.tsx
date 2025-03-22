@@ -9,10 +9,11 @@ import ProfileDetailsBox, {
   TUserDataProps,
 } from "../../../components/ui/ProfileDetailsBox";
 import CreateSellerModal from "./CreateSellerModal";
-import male from '../../../assets/images/male.png';
+import male from "../../../assets/images/male.png";
 import female from "../../../assets/images/female.png";
 import { useGetBuyerInfoQuery } from "../../../redux/features/buyer/buyerApi";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import UploadImage from "../../../components/ui/UploadImage";
 
 const Profile = () => {
   const user = useAppSelector(useCurrentUser);
@@ -35,6 +36,11 @@ const Profile = () => {
       title: "Phone Number",
       value: buyerData?.contactNumber,
       fieldName: "contactNumber",
+    },
+    {
+      title: "Date of Birth",
+      value: buyerData?.dateOfBirth,
+      fieldName: "dateOfBirth",
     },
   ];
   const addressData = [
@@ -64,8 +70,7 @@ const Profile = () => {
       fieldName: "address.country",
     },
   ];
-  const profile = (buyerData?.gender === 'male')? male : female
-  
+  const profile = buyerData?.gender === "male" ? male : female;
 
   return (
     <div className="min-h-screen">
@@ -122,14 +127,16 @@ const Profile = () => {
               </>
             ) : (
               <>
-                <button className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer">
-                  <Typography variant="subtitle2">
-                    <span className="flex items-center gap-2">
-                      <IoMdAddCircleOutline className="text-xl" /> Add Profile
-                      Picture
-                    </span>
-                  </Typography>
-                </button>
+                <UploadImage>
+                  <div className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer">
+                    <Typography variant="subtitle2">
+                      <span className="flex items-center gap-2">
+                        <IoMdAddCircleOutline className="text-xl" /> Add Profile
+                        Picture
+                      </span>
+                    </Typography>
+                  </div>
+                </UploadImage>
               </>
             )}
           </div>
