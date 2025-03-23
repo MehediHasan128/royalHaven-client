@@ -1,36 +1,45 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { styled } from "@mui/material/styles";
-import Button from "@mui/material/Button";
+import { UploadButton } from "@bytescale/upload-widget-react";
+import { UploadWidgetReactConfig } from "@bytescale/upload-widget-react/dist/UploadWidgetReactConfig";
 import { ReactNode } from "react";
+import { useUploadUserProfilePictureMutation } from "../../redux/features/buyer/buyerApi";
+import { useAppSelector } from "../../redux/hooks";
+import { useCurrentUser } from "../../redux/features/user/userSlice";
 
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
+const options: UploadWidgetReactConfig = {
+  apiKey: "public_W23MT5Y83PfYiQd9h6aNjMN8WYkK", // This is your API key.
+  maxFileCount: 1,
+};
 
-const UploadImage = ({ children, setImage }: { children: ReactNode; setImage: any }) => {
+const UploadImage = ({ children }: { children: ReactNode }) => {
 
-    const handleSetImageFile = (e: any) => {
-        setImage(e.target.files);
-    }
+  const [uploadUserProfilePicture] = useUploadUserProfilePictureMutation();
+  const currentUser = useAppSelector(useCurrentUser);
+
+
+
+  const handleImageUpload = async(files: any) => {
+    const imageFiel = files[0]?.originalFile.file;
+
+    const formData = new FormData();
+    if (imageFiel) {
+      formData.append("file", imageFiel);
+    };
+
+    await uploadUserProfilePicture([formData, currentUser?.userId]);
+  };
 
   return (
-    <Button component="label" fullWidth>
-      {children}
-      <VisuallyHiddenInput
-        type="file"
-        // onChange={(event) => setImage(event.target.files)}
-        onChange={handleSetImageFile}
-        multiple
-      />
-    </Button>
+    <UploadButton options={options} onComplete={handleImageUpload}>
+      {({ onClick }) => (
+        <button
+          onClick={onClick}
+          className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer"
+        >
+          {children}
+        </button>
+      )}
+    </UploadButton>
   );
 };
 
