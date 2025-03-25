@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
+import UserDetailsModal from "../../../components/ui/UserDetailsModal";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -24,16 +25,33 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-type TTableData = {
+export type TTableData = {
   id: string;
-  userId: string;
+  userName: {
+    firstName: string;
+    lastName: string;
+  };
+  profileUniqueUserName: string;
+  email: string;
   profileImage: string;
-  userName: string;
-  userEmail: string;
-  userLocation: string;
-}[];
+  gender: string;
+  dateOfBirth: string;
+  contactNumber: string;
+  address: {
+    streetAddress: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    country: string;
+  };
+  companyName: string;
+  websiteLink: string;
+  licenceNumber: string;
+  identityNumber: string;
+};
 
-const SellerTableData = ({ tableData }: { tableData: TTableData }) => {
+const SellerTableData = ({ tableData }: { tableData: TTableData[] }) => {
+
   return (
     <TableBody>
       {tableData?.map((data) => (
@@ -49,12 +67,11 @@ const SellerTableData = ({ tableData }: { tableData: TTableData }) => {
               </div>
               <div>
                 <Typography variant="h6">
-                  <span>{data?.userName}</span>
+                  <span>{data?.userName.firstName}</span>
                 </Typography>
                 <Typography variant="body2">
                   <span className="font-semibold">
-                    UID: <br />
-                    <span className="text-blue-600">{data?.userId}</span>
+                    UID: <span className="text-blue-600">{data?.id}</span>
                   </span>
                 </Typography>
               </div>
@@ -63,20 +80,28 @@ const SellerTableData = ({ tableData }: { tableData: TTableData }) => {
           <StyledTableCell>
             <div>
               <Typography variant="subtitle1">
-                <span className="font-semibold">{data?.userEmail}</span>
+                <span className="font-semibold">{data?.email}</span>
               </Typography>
             </div>
           </StyledTableCell>
           <StyledTableCell>
             <div>
               <Typography variant="subtitle1">
-                <span className="font-semibold">{data?.userLocation}</span>
+                <span className="font-semibold">
+                  {data?.address.city}, {data?.address?.country}
+                </span>
               </Typography>
             </div>
           </StyledTableCell>
           <StyledTableCell>
             <div>
-                <button className="px-5 py-2 rounded-lg bg-black text-white cursor-pointer hover:scale-110 duration-700"><Typography variant="button"><span className="font-semibold">Dtails</span></Typography></button>
+              <UserDetailsModal userData={data}>
+                <button className="px-5 py-2 rounded-lg bg-black text-white cursor-pointer hover:scale-110 duration-700">
+                  <Typography variant="button">
+                    <span className="font-semibold">Dtails</span>
+                  </Typography>
+                </button>
+              </UserDetailsModal>
             </div>
           </StyledTableCell>
         </StyledTableRow>

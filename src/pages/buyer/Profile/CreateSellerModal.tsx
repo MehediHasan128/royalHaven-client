@@ -30,7 +30,7 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
   const user = useAppSelector(useCurrentUser);
   const { data: userData } = useGetBuyerInfoQuery(user?.userId);
   const buyerData = userData?.data;
-  const [sellerReq, {data, error}] = useSellerReqMutation();
+  const [sellerReq] = useSellerReqMutation();
 
   const handleCreateSellerAccount = (data: FieldValues) => {
     const sellerReqestData = {
@@ -46,12 +46,10 @@ const CreateSellerModal = ({ children }: { children: ReactNode }) => {
       websiteLink: data?.websiteLink,
       licenceNumber: data?.licenceNumber,
       identityNumber: data?.identityNumber,
+      dateOfBirth: buyerData?.dateOfBirth
     };
     sellerReq(sellerReqestData);
   };
-
-  // console.log('data => ', data);
-  // console.log('error => ', error);
 
   return (
     <div>

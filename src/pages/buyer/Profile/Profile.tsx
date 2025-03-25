@@ -96,13 +96,13 @@ const Profile = () => {
         </div>
       </div>
 
-      <Divider />
+      <Divider /> 
 
       <div className="mt-5 flex gap-5">
         <div className="w-[25%]">
           <div className="h-72 rounded-xl">
             <img
-              className="w-full h-full rounded-xl border"
+              className="w-full h-full rounded-xl border object-cover"
               src={user?.userProfileImage ? user?.userProfileImage : profile}
               alt=""
             />
@@ -110,13 +110,13 @@ const Profile = () => {
           <div className="my-5 flex justify-between items-center">
             {user?.userProfileImage ? (
               <>
-                <button className="border-2 border-[#002C54] text-[#002C54] rounded-md px-3 py-2 cursor-pointer">
+                <UploadImage>
                   <Typography variant="subtitle2">
                     <span className="flex items-center gap-2">
                       <FiEdit className="text-lg" /> Change Picture
                     </span>
                   </Typography>
-                </button>
+                </UploadImage>
                 <button className="border-2 border-[#002C54] text-white bg-[#002C54] rounded-md px-3 py-2 cursor-pointer">
                   <Typography variant="subtitle2">
                     <span className="flex items-center gap-2">

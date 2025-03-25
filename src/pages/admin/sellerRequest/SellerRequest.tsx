@@ -11,21 +11,17 @@ import {
   import { useState } from "react";
   import TableHeading from "../../../components/ui/TableHeading";
 import SellerTableData from "./SellerTableData";
-
-  const tableData = [
-    {
-        id: "01",
-        userId: "644168ef4s6345e4t31",
-        profileImage: "https://www.wikihow.com/images/9/90/What_type_of_person_are_you_quiz_pic.png",
-        userName: "Mehedi Hasan",
-        userEmail: "mehediHasan@gmail.com",
-        userLocation: "Dhaka, Bangladesh"
-    }
-  ]
+import { useGetAllSellerReqQuery } from "../../../redux/features/seller/sellerApi";
   
   const SellerRequest = () => {
     const [search, setSearch] = useState<string | null>(null);
     console.log(search);
+
+    const {data: sellerReqData} = useGetAllSellerReqQuery(undefined);
+    const tableData = sellerReqData?.data;
+    
+    
+
     const tableHeading = [
       "Profile",
       "Email",
