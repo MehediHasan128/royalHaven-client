@@ -95,6 +95,23 @@ const Profile = () => {
       fieldName: "address.country",
     },
   ];
+  const companyData = [
+    {
+      title: "Company Name",
+      value: userData?.companyName,
+      fieldName: "companyName",
+    },
+    {
+      title: "Website link",
+      value: userData?.websiteLink,
+      fieldName: "websiteLink",
+    },
+    {
+      title: "Company licence",
+      value: userData?.licenceNumber,
+      fieldName: "licenceNumber",
+    },
+  ];
   const profile = userData?.gender === "male" ? male : female;
 
   return (
@@ -174,7 +191,14 @@ const Profile = () => {
                   {user?.userName?.firstName} {user?.userName?.lastName}
                 </span>
               </Typography>
-              <div className="border w-fit px-4 py-0.5 rounded-lg bg-blue-400 text-white my-3"><Typography variant="subtitle2"><span>{(user?.userRole)?.charAt(0).toUpperCase() + (user!.userRole)?.slice(1)}</span></Typography></div>
+              <div className="border w-fit px-4 py-0.5 rounded-lg bg-blue-400 text-white my-3">
+                <Typography variant="subtitle2">
+                  <span>
+                    {user?.userRole?.charAt(0).toUpperCase() +
+                      user!.userRole?.slice(1)}
+                  </span>
+                </Typography>
+              </div>
             </div>
             <div className="my-3">
               <Typography variant="body1">
@@ -209,6 +233,15 @@ const Profile = () => {
               userData={addressData as TUserDataProps}
             />
           </div>
+
+          {user?.userRole === "seller" && (
+            <div className="border border-gray-300  h-72 p-5 rounded-lg overflow-hidden">
+              <ProfileDetailsBox
+                boxTitle="Company Information"
+                userData={companyData as TUserDataProps}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
