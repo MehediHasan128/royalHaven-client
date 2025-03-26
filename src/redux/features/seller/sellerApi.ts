@@ -23,9 +23,16 @@ const sellerApi = baseApi.injectEndpoints({
                 method: "POST",
                 body: sellerData
             })
+        }),
+
+        getAllSeller: builder.query({
+            query: (sellerId) => ({
+                url: `/seller/${sellerId}`,
+                method: "GET"
+            })
         })
     })
 });
 
 
-export const {useSellerReqMutation, useGetAllSellerReqQuery, useCreateSellerMutation} = sellerApi;
+export const {useSellerReqMutation, useGetAllSellerReqQuery, useCreateSellerMutation, useGetAllSellerQuery} = sellerApi;

@@ -10,10 +10,12 @@ import {
 } from "../../redux/features/user/userSlice";
 import { BuyerSidebar } from "../../routes/buyer.routes";
 import { IoHomeOutline } from "react-icons/io5";
+import { SellerSidebar } from "../../routes/seller.routes";
 
 const Role = {
   ADMIN: "admin",
   BUYER: "buyer",
+  SELLER: "seller"
 };
 
 const UserLayout = () => {
@@ -30,6 +32,9 @@ const UserLayout = () => {
       break;
     case Role.BUYER:
       sidebarItems = BuyerSidebar;
+      break;
+    case Role.SELLER:
+      sidebarItems = SellerSidebar;
       break;
 
     default:

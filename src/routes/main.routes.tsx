@@ -10,6 +10,7 @@ import UserLayout from "../components/layout/UserLayout";
 import { AdminRoutes } from "./admin.routes";
 import { ProtectedRoutes } from "./Protected.routes";
 import { BuyerRoutes } from "./buyer.routes";
+import { SellerRoutes } from "./seller.routes";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
     path: "/buyer",
     element: <UserLayout />,
     children: BuyerRoutes
+  },
+  {
+    path: "/seller",
+    element: <UserLayout />,
+    children: SellerRoutes
   },
   {
     path: "/signin",

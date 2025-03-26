@@ -14,63 +14,88 @@ import female from "../../../assets/images/female.png";
 import { useGetBuyerInfoQuery } from "../../../redux/features/buyer/buyerApi";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import UploadImage from "../../../components/ui/UploadImage";
+import { useGetAllSellerQuery } from "../../../redux/features/seller/sellerApi";
+
+const Role = {
+  ADMIN: "admin",
+  BUYER: "buyer",
+  SELLER: "seller",
+};
 
 const Profile = () => {
   const user = useAppSelector(useCurrentUser);
-  const { data } = useGetBuyerInfoQuery(user?.userId);
-  const buyerData = data?.data;
+  const { data: buyerData } = useGetBuyerInfoQuery(user?.userId);
+  const { data: sellerData } = useGetAllSellerQuery(user?.userId);
+
+  const sellerInfo = sellerData?.data;
+  const buyerInfo = buyerData?.data;
+
+  const role = `${user?.userRole}`;
+  let userData;
+
+  switch (role) {
+    case Role.BUYER:
+      userData = buyerInfo;
+      break;
+    case Role.SELLER:
+      userData = sellerInfo;
+      break;
+
+    default:
+      break;
+  }
 
   const personalData = [
     {
       title: "First Name",
-      value: buyerData?.userName?.firstName,
+      value: userData?.userName?.firstName,
       fieldName: "firstName",
     },
     {
       title: "Last Name",
-      value: buyerData?.userName?.lastName,
+      value: userData?.userName?.lastName,
       fieldName: "lastName",
     },
-    { title: "Email Address", value: buyerData?.email, fieldName: "email" },
+    { title: "Email Address", value: userData?.email, fieldName: "email" },
     {
       title: "Phone Number",
-      value: buyerData?.contactNumber,
+      value: userData?.contactNumber,
       fieldName: "contactNumber",
     },
     {
       title: "Date of Birth",
-      value: buyerData?.dateOfBirth,
+      value: userData?.dateOfBirth,
       fieldName: "dateOfBirth",
     },
   ];
   const addressData = [
     {
       title: "Street Address",
-      value: buyerData?.address?.streetAddress,
+      value: userData?.address?.streetAddress,
       fieldName: "address.streetAddress",
     },
     {
       title: "City",
-      value: buyerData?.address?.city,
+      value: userData?.address?.city,
       fieldName: "address.city",
     },
     {
       title: "Posatal Code",
-      value: buyerData?.address?.postalCode,
+      value: userData?.address?.postalCode,
       fieldName: "address.postalCode",
     },
     {
       title: "State",
-      value: buyerData?.address?.state,
+      value: userData?.address?.state,
       fieldName: "address.state",
     },
     {
       title: "Country",
-      value: buyerData?.address?.country,
+      value: userData?.address?.country,
       fieldName: "address.country",
     },
   ];
-  const profile = buyerData?.gender === "male" ? male : female;
+  const profile = userData?.gender === "male" ? male : female;
 
   return (
     <div className="min-h-screen">
@@ -82,11 +107,15 @@ const Profile = () => {
           </span>
         </Typography>
         <div className="flex space-x-3">
-          <CreateSellerModal>
-            <Typography variant="subtitle2">
-              <span>Make Seller Profile</span>
-            </Typography>
-          </CreateSellerModal>
+          {user?.userRole === "buyer" ? (
+            <CreateSellerModal>
+              <Typography variant="subtitle2">
+                <span>Make Seller Profile</span>
+              </Typography>
+            </CreateSellerModal>
+          ) : (
+            <></>
+          )}
 
           <button className="border-2 border-[#002C54] bg-[#002C54] px-4 py-2 text-white rounded-lg cursor-pointer hover:-translate-x-2 duration-700">
             <Typography variant="subtitle2">
@@ -96,7 +125,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <Divider /> 
+      <Divider />
 
       <div className="mt-5 flex gap-5">
         <div className="w-[25%]">
@@ -139,11 +168,14 @@ const Profile = () => {
             )}
           </div>
           <div>
-            <Typography variant="h5">
-              <span className="font-semibold">
-                {user?.userName?.firstName} {user?.userName?.lastName}
-              </span>
-            </Typography>
+            <div>
+              <Typography variant="h5">
+                <span className="font-semibold">
+                  {user?.userName?.firstName} {user?.userName?.lastName}
+                </span>
+              </Typography>
+              <div className="border w-fit px-4 py-0.5 rounded-lg bg-blue-400 text-white my-3"><Typography variant="subtitle2"><span>{(user?.userRole)?.charAt(0).toUpperCase() + (user!.userRole)?.slice(1)}</span></Typography></div>
+            </div>
             <div className="my-3">
               <Typography variant="body1">
                 <span className="font-medium text-gray-600 flex items-center gap-3">
