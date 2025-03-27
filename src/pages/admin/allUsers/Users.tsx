@@ -11,61 +11,39 @@ import { FiSearch } from "react-icons/fi";
 import { LuFilter } from "react-icons/lu";
 import TableHeading from "../../../components/ui/TableHeading";
 import UsersTableData from "./UsersTableData";
+import { useGetAllUsersQuery } from "../../../redux/features/user/userApi";
 
-const userData = [
-  {
-    id: "hsui57852%wk",
-    verified: true,
-    name: "Mehedi Hasan",
-    profileImage: "https://tinyurl.com/3ewvn56f",
-    email: "mehedihasan@gmail.com",
-    role: "Seller",
-    status: "Active",
-    location: "Dhaka, Bangladesh",
-    lastLogin: "8:30 AM",
-    create: "5.30 PM, 05/02/2025",
-    update: "6.30 PM, 08/10/2025",
-  },
-  {
-    id: "hsui5785he79%wk",
-    verified: true,
-    name: "Md Mahfuz",
-    profileImage: "https://tinyurl.com/msnfws8f",
-    email: "mahfuz@gmail.com",
-    role: "Buyer",
-    status: "Active",
-    location: "Los Angle, USA",
-    lastLogin: "2:45 AM",
-    create: "8.10 PM, 05/02/2025",
-    update: "6.30 PM, 08/10/2025",
-  },
-  {
-    id: "hsui575he79%wk",
-    verified: false,
-    name: "Md Mahfuz",
-    profileImage: "https://tinyurl.com/msnfws8f",
-    email: "mahfuz@gmail.com",
-    role: "Buyer",
-    status: "Suspended",
-    location: "Los Angle, USA",
-    lastLogin: "2:45 AM",
-    create: "8.10 PM, 05/02/2025",
-    update: "6.30 PM, 08/10/2025",
-  },
-];
+export type TUserInformation = {
+  _id: string;
+  id: string;
+  userName: {
+    firstName: string;
+    lastName: string;
+  };
+  profileImage: string;
+  email: string;
+  role: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
 const tableHEading = [
   "User Profile",
-  "CreatedAt",
+  "Email",
   "Role",
   "Status",
-  "Location",
+  "CreatedAt",
   "Action",
 ];
 
 const Users = () => {
   const [search, setSearch] = useState<string | null>(null);
   console.log(search);
+  const {data, refetch} = useGetAllUsersQuery(undefined);
+
+  const usersInformation = data?.data;
+  
 
   return (
     <div>
@@ -104,7 +82,7 @@ const Users = () => {
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
               <TableHeading tableHeading={tableHEading} />
-              <UsersTableData tableData={userData} />
+              <UsersTableData tableData={usersInformation} refetch={refetch} />
             </Table>
           </TableContainer>
 

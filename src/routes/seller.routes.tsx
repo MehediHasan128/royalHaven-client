@@ -5,16 +5,12 @@ import {
 } from "../utils/generateUserRoutesAndSidebar";
 import { CgProfile } from "react-icons/cg";
 import AllProperties from "../pages/admin/allProperties/AllProperties";
-import {
-  MdOutlineFavoriteBorder,
-  MdOutlineQueryStats,
-  MdOutlineReportProblem,
-} from "react-icons/md";
-import { IoBookmarkOutline } from "react-icons/io5";
+import { MdOutlineQueryStats, MdOutlineReportProblem } from "react-icons/md";
 import { GoCodeReview } from "react-icons/go";
 import Profile from "../pages/buyer/Profile/Profile";
 import Queries from "../pages/buyer/Queries/Queries";
 import FavoriteProperty from "../pages/buyer/FavoriteProperty/FavoriteProperty";
+import { RiHome9Line } from "react-icons/ri";
 
 export type TAdminRoutesItem = {
   index?: boolean;
@@ -37,21 +33,15 @@ export const sellerRoutes = [
   },
   {
     icon: <MdOutlineQueryStats />,
-    path: "/seller/queries",
-    name: "Queries",
+    path: "/seller/customerQueries",
+    name: "Customer Queries",
     element: <Queries />,
   },
   {
-    icon: <MdOutlineFavoriteBorder />,
-    path: "/seller/favouriteProperties",
-    name: "Favourite Properties",
+    icon: <RiHome9Line />,
+    path: "/seller/myProperties",
+    name: "My Properties",
     element: <FavoriteProperty />,
-  },
-  {
-    icon: <IoBookmarkOutline />,
-    path: "/seller/bookmarkProperties",
-    name: "Bookmark Properties",
-    element: <AllProperties />,
   },
   {
     icon: <GoCodeReview />,

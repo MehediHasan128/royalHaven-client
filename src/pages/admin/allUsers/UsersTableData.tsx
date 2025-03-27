@@ -4,7 +4,9 @@ import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import { HiDotsHorizontal } from "react-icons/hi";
-import { PhotoView } from "react-photo-view";
+import { TUserInformation } from "./Users";
+import { format } from "date-fns";
+import UserActionDropdown from "../../../components/ui/UserActionDropdown";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -12,7 +14,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
+    fontSize: 10,
   },
 }));
 
@@ -26,82 +28,89 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-type TUserDataProps = {
-  id: string;
-  verified: boolean;
-  name: string;
-  profileImage: string;
-  email: string;
-  role: string;
-  status: string;
-  location: string;
-  lastLogin: string;
-  create: string;
-  update: string;
-};
+const UsersTableData = ({ tableData, refetch }: { tableData: TUserInformation[], refetch: () => void }) => {
+  const formateDate = (timeStamp: string, type: string) => {
+    const dateAndTime =
+      type === "date"
+        ? format(new Date(timeStamp), "MMMM do yyyy")
+        : format(new Date(timeStamp), "h:mm a");
 
-const UsersTableData = ({ tableData }: { tableData: TUserDataProps[] }) => {
+    return dateAndTime;
+  };
+
   return (
     <TableBody>
-      {tableData.map((data: TUserDataProps) => (
-        <StyledTableRow key={data.id}>
+      {tableData?.map((data: TUserInformation) => (
+        <StyledTableRow>
           <StyledTableCell>
-            <div className="flex items-center gap-4">
-              <div
-                className={`border-2 ${
-                  data.verified ? "border-green-700" : "border-red-700"
-                } w-fit rounded-full p-1`}
-              >
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <PhotoView src={data.profileImage}>
-                    <img
-                      src={data.profileImage}
-                      alt=""
-                      className="w-full h-full cursor-pointer"
-                    />
-                  </PhotoView>
-                </div>
+            <div className="flex items-center gap-2">
+              <div className="size-10 overflow-hidden rounded-full">
+                <img className="object-cover" src={data?.profileImage} alt="" />
               </div>
               <div>
-                <Typography variant="subtitle1">
-                  <span className="font-semibold">{data.name}</span>
-                </Typography>
-                <Typography variant="caption">
-                  <span className="font-bold text-gray-600">{data.email}</span>
+                <Typography variant="subtitle2">
+                  <span>
+                    {data.userName.firstName} {data.userName.lastName}
+                  </span>
                 </Typography>
               </div>
             </div>
-          </StyledTableCell>
-          <StyledTableCell>
-            <Typography variant="subtitle1">
-              <span className="font-semibold">{data.create}</span>
-            </Typography>
-          </StyledTableCell>
-          <StyledTableCell>
-            <Typography variant="subtitle1">
-              <span className="font-semibold">{data.role}</span>
-            </Typography>
-          </StyledTableCell>
-          <StyledTableCell>
-            <Typography variant="subtitle1">
-              <span
-                className={`font-semibold ${
-                  data.status === "Active" ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {data.status}
-              </span>
-            </Typography>
-          </StyledTableCell>
-          <StyledTableCell>
-            <Typography variant="subtitle1">
-              <span className="font-semibold">{data.location}</span>
-            </Typography>
           </StyledTableCell>
           <StyledTableCell>
             <div>
-              <HiDotsHorizontal className="text-2xl cursor-pointer" />
+              <Typography variant="subtitle2">
+                <span>{data.email}</span>
+              </Typography>
             </div>
+          </StyledTableCell>
+          <StyledTableCell>
+            <div>
+              <Typography variant="subtitle2">
+                <span>
+                  {data.role.charAt(0).toUpperCase() + data.role.slice(1)}
+                </span>
+              </Typography>
+            </div>
+          </StyledTableCell>
+          <StyledTableCell>
+            <div>
+              <Typography variant="subtitle2">
+                {data.status === "active" ? (
+                  <span className="text-green-600">
+                    {data.status.charAt(0).toUpperCase() + data.status.slice(1)}
+                  </span>
+                ) : (
+                  <>
+                    {data.status === "suspended" ? (
+                      <span className="text-yellow-600">
+                        {data.status.charAt(0).toUpperCase() +
+                          data.status.slice(1)}
+                      </span>
+                    ) : (
+                      <span className="text-red-600">
+                        {data.status.charAt(0).toUpperCase() +
+                          data.status.slice(1)}
+                      </span>
+                    )}
+                  </>
+                )}
+              </Typography>
+            </div>
+          </StyledTableCell>
+          <StyledTableCell>
+            <div>
+              <Typography variant="subtitle2">
+                <span>{formateDate(data.createdAt, "date")}</span>,{" "}
+                <span className="text-blue-800 font-bold">
+                  {formateDate(data.createdAt, "time")}
+                </span>
+              </Typography>
+            </div>
+          </StyledTableCell>
+          <StyledTableCell>
+            <UserActionDropdown userId={data._id} refetch={refetch}>
+              <HiDotsHorizontal className="text-xl cursor-pointer" />
+            </UserActionDropdown>
           </StyledTableCell>
         </StyledTableRow>
       ))}

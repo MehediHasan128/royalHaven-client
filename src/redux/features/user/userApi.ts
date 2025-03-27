@@ -15,9 +15,22 @@ const userApi = baseApi.injectEndpoints({
                 method: 'POST',
                 body: userInfo
             })
+        }),
+        getAllUsers: builder.query({
+            query: () => ({
+                url: '/users',
+                method: 'GET'
+            })
+        }),
+        updateUserStatus: builder.mutation({
+            query: ([updatedData, uid]) => ({
+                url: `users/updateStatus/${uid}`,
+                method: 'PATCH',
+                body: updatedData
+            })
         })
     })
 });
 
 
-export const {useSignInMutation, useSignUpMutation} = userApi;
+export const {useSignInMutation, useSignUpMutation, useGetAllUsersQuery, useUpdateUserStatusMutation} = userApi;
