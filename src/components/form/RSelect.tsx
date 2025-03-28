@@ -1,26 +1,66 @@
-import { FormControl, InputLabel } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import { MenuItem, SelectChangeEvent, TextField, Typography } from "@mui/material";
+import { useState } from "react";
 import { Controller } from "react-hook-form";
 
-type TSelectProps = {
+type TInputProps = {
+  type: string;
   name: string;
-  label: string;
+  label?: string;
+  variant: "filled" | "outlined" | "standard";
+  required?: boolean;
+  defaultValue?: string | number;
+  size?: "small" | "medium";
+  values: string[];
 };
 
-const RSelect = ({ name, label }: TSelectProps) => {
+const RSelect = ({
+  type,
+  name,
+  variant,
+  required,
+  label,
+  defaultValue,
+  size,
+  values,
+}: TInputProps) => {
+
+  const [value, setValue] = useState(defaultValue || '');
+  console.log(value);
+
+  const handleChangeValue = (event: SelectChangeEvent): void => {
+    setValue(event.target.value);
+  }
+
   return (
     <div>
       <Controller
         name={name}
+        defaultValue={defaultValue}
         render={({ field }) => (
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">{label}</InputLabel>
-            <Select labelId="demo-simple-select-label" id="demo-simple-select" {...field} fullWidth variant="outlined" label={label}>
-              <MenuItem value={"male"}>Male</MenuItem>
-              <MenuItem value={"female"}>Female</MenuItem>
-            </Select>
-          </FormControl>
+          <TextField
+            {...field}
+            type={type}
+            label={label}
+            variant={variant}
+            fullWidth
+            size={size}
+            select={true}
+            required={required}
+            SelectProps={{
+              MenuProps: {
+                disableScrollLock: true
+              }
+            }}
+            onChange={handleChangeValue}
+          >
+            {values?.map((value: string) => (
+              <MenuItem value={value}>
+                <Typography variant="subtitle2">
+                  <span>{value.charAt(0).toUpperCase() + value.slice(1)}</span>
+                </Typography>
+              </MenuItem>
+            ))}
+          </TextField>
         )}
       />
     </div>

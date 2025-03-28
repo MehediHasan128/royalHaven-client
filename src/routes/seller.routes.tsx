@@ -11,6 +11,8 @@ import Profile from "../pages/buyer/Profile/Profile";
 import Queries from "../pages/buyer/Queries/Queries";
 import FavoriteProperty from "../pages/buyer/FavoriteProperty/FavoriteProperty";
 import { RiHome9Line } from "react-icons/ri";
+import AddProperties from "../pages/seller/addProperties/addProperties";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 export type TAdminRoutesItem = {
   index?: boolean;
@@ -32,16 +34,22 @@ export const sellerRoutes = [
     element: <Profile />,
   },
   {
-    icon: <MdOutlineQueryStats />,
-    path: "/seller/customerQueries",
-    name: "Customer Queries",
-    element: <Queries />,
+    icon: <IoMdAddCircleOutline />,
+    path: "/seller/addProperties",
+    name: "Add Properties",
+    element: <AddProperties />,
   },
   {
     icon: <RiHome9Line />,
     path: "/seller/myProperties",
     name: "My Properties",
     element: <FavoriteProperty />,
+  },
+  {
+    icon: <MdOutlineQueryStats />,
+    path: "/seller/customerQueries",
+    name: "Customer Queries",
+    element: <Queries />,
   },
   {
     icon: <GoCodeReview />,

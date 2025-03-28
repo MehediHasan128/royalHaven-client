@@ -57,14 +57,14 @@ const UsersTableData = ({ tableData, refetch }: { tableData: TUserInformation[],
             </div>
           </StyledTableCell>
           <StyledTableCell>
-            <div>
+            <div className="w-56">
               <Typography variant="subtitle2">
                 <span>{data.email}</span>
               </Typography>
             </div>
           </StyledTableCell>
           <StyledTableCell>
-            <div>
+            <div className="w-32">
               <Typography variant="subtitle2">
                 <span>
                   {data.role.charAt(0).toUpperCase() + data.role.slice(1)}
@@ -73,7 +73,7 @@ const UsersTableData = ({ tableData, refetch }: { tableData: TUserInformation[],
             </div>
           </StyledTableCell>
           <StyledTableCell>
-            <div>
+            <div className="w-32">
               <Typography variant="subtitle2">
                 {data.status === "active" ? (
                   <span className="text-green-600">
@@ -98,7 +98,7 @@ const UsersTableData = ({ tableData, refetch }: { tableData: TUserInformation[],
             </div>
           </StyledTableCell>
           <StyledTableCell>
-            <div>
+            <div className="w-56">
               <Typography variant="subtitle2">
                 <span>{formateDate(data.createdAt, "date")}</span>,{" "}
                 <span className="text-blue-800 font-bold">

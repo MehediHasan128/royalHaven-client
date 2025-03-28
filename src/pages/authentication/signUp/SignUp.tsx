@@ -123,7 +123,7 @@ const SignUp = () => {
                 />
               </div>
 
-              <RSelect name="gender" label="Gender" />
+              <RSelect type="text" name="gender" variant="outlined" label="Gender" values={['male', 'female']} />
 
               <RInput
                 type="email"
