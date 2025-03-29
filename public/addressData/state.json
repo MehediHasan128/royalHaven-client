@@ -1,0 +1,382 @@
+[
+    {
+        "countryCode": "AU",
+        "value": "NSW",
+        "name": "New South Wales"
+    },
+    {
+        "countryCode": "AU",
+        "value": "VIC",
+        "name": "Victoria"
+    },
+    {
+        "countryCode": "AU",
+        "value": "QLD",
+        "name": "Queensland"
+    },
+    {
+        "countryCode": "AU",
+        "value": "WA",
+        "name": "Western Australia"
+    },
+    {
+        "countryCode": "AU",
+        "value": "SA",
+        "name": "South Australia"
+    },
+    {
+        "countryCode": "AU",
+        "value": "TAS",
+        "name": "Tasmania"
+    },
+    {
+        "countryCode": "BD",
+        "value": "DHA",
+        "name": "Dhaka"
+    },
+    {
+        "countryCode": "BD",
+        "value": "CTG",
+        "name": "Chattogram"
+    },
+    {
+        "countryCode": "BD",
+        "value": "RAJ",
+        "name": "Rajshahi"
+    },
+    {
+        "countryCode": "BD",
+        "value": "SYL",
+        "name": "Sylhet"
+    },
+    {
+        "countryCode": "BD",
+        "value": "KHL",
+        "name": "Khulna"
+    },
+    {
+        "countryCode": "BE",
+        "value": "BRU",
+        "name": "Brussels-Capital"
+    },
+    {
+        "countryCode": "BE",
+        "value": "VLG",
+        "name": "Flanders"
+    },
+    {
+        "countryCode": "BE",
+        "value": "WAL",
+        "name": "Wallonia"
+    },
+    {
+        "countryCode": "BE",
+        "value": "ANT",
+        "name": "Antwerp"
+    },
+    {
+        "countryCode": "BE",
+        "value": "LIE",
+        "name": "Liège"
+    },
+    {
+        "countryCode": "CN",
+        "value": "BJ",
+        "name": "Beijing"
+    },
+    {
+        "countryCode": "CN",
+        "value": "SH",
+        "name": "Shanghai"
+    },
+    {
+        "countryCode": "CN",
+        "value": "GD",
+        "name": "Guangdong"
+    },
+    {
+        "countryCode": "CN",
+        "value": "ZJ",
+        "name": "Zhejiang"
+    },
+    {
+        "countryCode": "CN",
+        "value": "SC",
+        "name": "Sichuan"
+    },
+    {
+        "countryCode": "CA",
+        "value": "ON",
+        "name": "Ontario"
+    },
+    {
+        "countryCode": "CA",
+        "value": "QC",
+        "name": "Quebec"
+    },
+    {
+        "countryCode": "CA",
+        "value": "BC",
+        "name": "British Columbia"
+    },
+    {
+        "countryCode": "CA",
+        "value": "AB",
+        "name": "Alberta"
+    },
+    {
+        "countryCode": "CA",
+        "value": "MB",
+        "name": "Manitoba"
+    },
+    {
+        "countryCode": "DK",
+        "value": "H",
+        "name": "Hovedstaden"
+    },
+    {
+        "countryCode": "DK",
+        "value": "M",
+        "name": "Midtjylland"
+    },
+    {
+        "countryCode": "DK",
+        "value": "N",
+        "name": "Nordjylland"
+    },
+    {
+        "countryCode": "DK",
+        "value": "S",
+        "name": "Sjælland"
+    },
+    {
+        "countryCode": "DK",
+        "value": "SD",
+        "name": "Syddanmark"
+    },
+    {
+        "countryCode": "FR",
+        "value": "IDF",
+        "name": "Île-de-France"
+    },
+    {
+        "countryCode": "FR",
+        "value": "PAC",
+        "name": "Provence-Alpes-Côte d'Azur"
+    },
+    {
+        "countryCode": "FR",
+        "value": "OCC",
+        "name": "Occitanie"
+    },
+    {
+        "countryCode": "FR",
+        "value": "NAQ",
+        "name": "Nouvelle-Aquitaine"
+    },
+    {
+        "countryCode": "FR",
+        "value": "ARA",
+        "name": "Auvergne-Rhône-Alpes"
+    },
+    {
+        "countryCode": "DE",
+        "value": "BE",
+        "name": "Berlin"
+    },
+    {
+        "countryCode": "DE",
+        "value": "BW",
+        "name": "Baden-Württemberg"
+    },
+    {
+        "countryCode": "DE",
+        "value": "BY",
+        "name": "Bavaria (Bayern)"
+    },
+    {
+        "countryCode": "DE",
+        "value": "HE",
+        "name": "Hesse (Hessen)"
+    },
+    {
+        "countryCode": "DE",
+        "value": "NRW",
+        "name": "North Rhine-Westphalia (Nordrhein-Westfalen)"
+    },
+    {
+        "countryCode": "JP",
+        "value": "TK",
+        "name": "Tokyo"
+    },
+    {
+        "countryCode": "JP",
+        "value": "OS",
+        "name": "Osaka"
+    },
+    {
+        "countryCode": "JP",
+        "value": "HK",
+        "name": "Hokkaido"
+    },
+    {
+        "countryCode": "JP",
+        "value": "KG",
+        "name": "Kanagawa"
+    },
+    {
+        "countryCode": "JP",
+        "value": "AI",
+        "name": "Aichi"
+    },
+    {
+        "countryCode": "MY",
+        "value": "KUL",
+        "name": "Kuala Lumpur"
+    },
+    {
+        "countryCode": "MY",
+        "value": "SGR",
+        "name": "Selangor"
+    },
+    {
+        "countryCode": "MY",
+        "value": "JHR",
+        "name": "Johor"
+    },
+    {
+        "countryCode": "MY",
+        "value": "PNG",
+        "name": "Penang"
+    },
+    {
+        "countryCode": "MY",
+        "value": "SBH",
+        "name": "Sabah"
+    },
+    {
+        "countryCode": "QA",
+        "value": "DA",
+        "name": "Doha"
+    },
+    {
+        "countryCode": "QA",
+        "value": "RA",
+        "name": "Al Rayyan"
+    },
+    {
+        "countryCode": "QA",
+        "value": "WA",
+        "name": "Al Wakrah"
+    },
+    {
+        "countryCode": "QA",
+        "value": "KH",
+        "name": "Al Khor"
+    },
+    {
+        "countryCode": "QA",
+        "value": "UM",
+        "name": "Umm Salal"
+    },
+    {
+        "countryCode": "RU",
+        "value": "MOW",
+        "name": "Moscow"
+    },
+    {
+        "countryCode": "RU",
+        "value": "SPE",
+        "name": "Saint Petersburg"
+    },
+    {
+        "countryCode": "RU",
+        "value": "MOS",
+        "name": "Moscow Oblast"
+    },
+    {
+        "countryCode": "RU",
+        "value": "TA",
+        "name": "Tatarstan"
+    },
+    {
+        "countryCode": "RU",
+        "value": "SVE",
+        "name": "Sverdlovsk Oblast"
+    },
+    {
+        "countryCode": "TR",
+        "value": "IST",
+        "name": "Istanbul"
+    },
+    {
+        "countryCode": "TR",
+        "value": "ANK",
+        "name": "Ankara"
+    },
+    {
+        "countryCode": "TR",
+        "value": "IZM",
+        "name": "Izmir"
+    },
+    {
+        "countryCode": "TR",
+        "value": "BUR",
+        "name": "Bursa"
+    },
+    {
+        "countryCode": "TR",
+        "value": "ANT",
+        "name": "Antalya"
+    },
+    {
+        "countryCode": "GB",
+        "value": "ENG",
+        "name": "England"
+    },
+    {
+        "countryCode": "GB",
+        "value": "SCT",
+        "name": "Scotland"
+    },
+    {
+        "countryCode": "GB",
+        "value": "WLS",
+        "name": "Wales"
+    },
+    {
+        "countryCode": "GB",
+        "value": "NIR",
+        "name": "Northern Ireland"
+    },
+    {
+        "countryCode": "GB",
+        "value": "LND",
+        "name": "London"
+    },
+    {
+        "countryCode": "US",
+        "value": "CA",
+        "name": "California"
+    },
+    {
+        "countryCode": "US",
+        "value": "TX",
+        "name": "Texas"
+    },
+    {
+        "countryCode": "US",
+        "value": "FL",
+        "name": "Florida"
+    },
+    {
+        "countryCode": "US",
+        "value": "NY",
+        "name": "New York"
+    },
+    {
+        "countryCode": "US",
+        "value": "IL",
+        "name": "Illinois"
+    }
+]

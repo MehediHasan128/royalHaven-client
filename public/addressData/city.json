@@ -1,0 +1,67 @@
+[
+    { "stateCode": "NSW", "value": "SYD", "name": "Sydney" },
+    { "stateCode": "NSW", "value": "NEW", "name": "Newcastle" },
+    { "stateCode": "NSW", "value": "WOL", "name": "Wollongong" },
+    { "stateCode": "NSW", "value": "CBT", "name": "Coffs Harbour" },
+    { "stateCode": "NSW", "value": "TAM", "name": "Tamworth" },
+
+    { "stateCode": "VIC", "value": "MEL", "name": "Melbourne" },
+    { "stateCode": "VIC", "value": "GEE", "name": "Geelong" },
+    { "stateCode": "VIC", "value": "BAL", "name": "Ballarat" },
+    { "stateCode": "VIC", "value": "BEN", "name": "Bendigo" },
+    { "stateCode": "VIC", "value": "LAT", "name": "Latrobe City" },
+
+    { "stateCode": "QLD", "value": "BNE", "name": "Brisbane" },
+    { "stateCode": "QLD", "value": "GCT", "name": "Gold Coast" },
+    { "stateCode": "QLD", "value": "TOW", "name": "Townsville" },
+    { "stateCode": "QLD", "value": "CNS", "name": "Cairns" },
+    { "stateCode": "QLD", "value": "TOO", "name": "Toowoomba" },
+
+    { "stateCode": "WA", "value": "PER", "name": "Perth" },
+    { "stateCode": "WA", "value": "FRE", "name": "Fremantle" },
+    { "stateCode": "WA", "value": "BUN", "name": "Bunbury" },
+    { "stateCode": "WA", "value": "ALB", "name": "Albany" },
+    { "stateCode": "WA", "value": "KAL", "name": "Kalgoorlie" },
+
+    { "stateCode": "SA", "value": "ADL", "name": "Adelaide" },
+    { "stateCode": "SA", "value": "MTG", "name": "Mount Gambier" },
+    { "stateCode": "SA", "value": "WHY", "name": "Whyalla" },
+    { "stateCode": "SA", "value": "POR", "name": "Port Augusta" },
+    { "stateCode": "SA", "value": "MUR", "name": "Murray Bridge" },
+
+    { "stateCode": "TAS", "value": "HBA", "name": "Hobart" },
+    { "stateCode": "TAS", "value": "LST", "name": "Launceston" },
+    { "stateCode": "TAS", "value": "DEV", "name": "Devonport" },
+    { "stateCode": "TAS", "value": "BUR", "name": "Burnie" },
+    { "stateCode": "TAS", "value": "KIN", "name": "Kingston" },
+
+    { "stateCode": "DHA", "value": "DHK", "name": "Dhaka" },
+    { "stateCode": "DHA", "value": "GZP", "name": "Gazipur" },
+    { "stateCode": "DHA", "value": "MYS", "name": "Mymensing" },
+    { "stateCode": "DHA", "value": "TNG", "name": "Tangail" },
+    { "stateCode": "DHA", "value": "NAR", "name": "Narayanganj" },
+    { "stateCode": "DHA", "value": "FAR", "name": "Faridpur" },
+
+    { "stateCode": "CTG", "value": "CTG", "name": "Chattogram" },
+    { "stateCode": "CTG", "value": "COX", "name": "Cox's Bazar" },
+    { "stateCode": "CTG", "value": "COM", "name": "Comilla" },
+    { "stateCode": "CTG", "value": "BND", "name": "Bandarban" },
+    { "stateCode": "CTG", "value": "FNI", "name": "Feni" },
+
+    { "stateCode": "RAJ", "value": "RAJ", "name": "Rajshahi" },
+    { "stateCode": "RAJ", "value": "BOG", "name": "Bogra" },
+    { "stateCode": "RAJ", "value": "NAT", "name": "Natore" },
+    { "stateCode": "RAJ", "value": "PAB", "name": "Pabna" },
+    { "stateCode": "RAJ", "value": "JOY", "name": "Joypurhat" },
+
+    { "stateCode": "SYL", "value": "SYL", "name": "Sylhet" },
+    { "stateCode": "SYL", "value": "MOU", "name": "Moulvibazar" },
+    { "stateCode": "SYL", "value": "HAB", "name": "Habiganj" },
+    { "stateCode": "SYL", "value": "SUN", "name": "Sunamganj" },
+
+    { "stateCode": "KHL", "value": "KHL", "name": "Khulna" },
+    { "stateCode": "KHL", "value": "JES", "name": "Jessore" },
+    { "stateCode": "KHL", "value": "SAT", "name": "Satkhira" },
+    { "stateCode": "KHL", "value": "BAG", "name": "Bagerhat" },
+    { "stateCode": "KHL", "value": "KUS", "name": "Kushtia" }
+]

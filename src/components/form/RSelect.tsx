@@ -1,5 +1,5 @@
-import { MenuItem, SelectChangeEvent, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { MenuItem, TextField, Typography } from "@mui/material";
+import { SetStateAction } from "react";
 import { Controller } from "react-hook-form";
 
 type TInputProps = {
@@ -10,7 +10,11 @@ type TInputProps = {
   required?: boolean;
   defaultValue?: string | number;
   size?: "small" | "medium";
-  values: string[];
+  data: {
+    value: string;
+    name: string;
+  }[];
+  setLocalValue?: (value: string | null) => void;
 };
 
 const RSelect = ({
@@ -21,15 +25,20 @@ const RSelect = ({
   label,
   defaultValue,
   size,
-  values,
+  data,
+  setLocalValue
 }: TInputProps) => {
 
-  const [value, setValue] = useState(defaultValue || '');
-  console.log(value);
+  const handleChangeValue = (event: React.ChangeEvent<{ value: SetStateAction<string> }>): void => {
+    const newValue = event.target.value;
+    setLocalValue(newValue as string);
+  };
 
-  const handleChangeValue = (event: SelectChangeEvent): void => {
-    setValue(event.target.value);
-  }
+  const getFullName = (shortValue: string): string => {
+    const selected = data.find(item => item.value === shortValue);
+    return selected ? selected.name : "";
+  };
+  
 
   return (
     <div>
@@ -51,12 +60,15 @@ const RSelect = ({
                 disableScrollLock: true
               }
             }}
-            onChange={handleChangeValue}
+            onChange={(e) => {
+              field.onChange(e.target.value); // Update react-hook-form state
+              handleChangeValue(e); // Update local state and trigger any other actions
+            }}
           >
-            {values?.map((value: string) => (
-              <MenuItem value={value}>
+            {data?.map((item) => (
+              <MenuItem key={item.value} value={item.value}>
                 <Typography variant="subtitle2">
-                  <span>{value.charAt(0).toUpperCase() + value.slice(1)}</span>
+                  <span>{item.name}</span>
                 </Typography>
               </MenuItem>
             ))}

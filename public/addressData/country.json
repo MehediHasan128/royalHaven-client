@@ -1,0 +1,62 @@
+[
+    {
+        "value": "AU",
+        "name": "Australia"
+    },
+    {
+        "value": "BD",
+        "name": "Bangladesh"
+    },
+    {
+        "value": "BE",
+        "name": "Belgium"
+    },
+    {
+        "value": "CN",
+        "name": "China"
+    },
+    {
+        "value": "CA",
+        "name": "Canada"
+    },
+    {
+        "value": "DK",
+        "name": "Denmark"
+    },
+    {
+        "value": "FR",
+        "name": "France"
+    },
+    {
+        "value": "DE",
+        "name": "Germany"
+    },
+    {
+        "value": "JP",
+        "name": "Japan"
+    },
+    {
+        "value": "MY",
+        "name": "Malaysia"
+    },
+    {
+        "value": "QA",
+        "name": "Qatar"
+    },
+    {
+        "value": "RU",
+        "name": "Russia"
+    },
+    {
+        "value": "TR",
+        "name": "Turkey"
+    },
+    {
+        "value": "UK",
+        "name": "United Kingdom"
+    },
+    {
+        "value": "US",
+        "name": "United States"
+    }
+]

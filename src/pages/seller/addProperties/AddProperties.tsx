@@ -4,8 +4,57 @@ import RInput from "../../../components/form/RInput";
 import RSelect from "../../../components/form/RSelect";
 import { FieldValues } from "react-hook-form";
 import property from "../../../assets/images/pro.jpg";
+import {
+  amenities,
+  condition,
+  furnishingStatus,
+  listingType,
+  nearbyFacilities,
+  negotiable,
+  paymentOption,
+  propertyType,
+} from "./data";
+import { useEffect, useState } from "react";
 
 const AddProperties = () => {
+  const [countryValue, setCountryValue] = useState<string | null>(null);
+  const [country, setCountry] = useState([]);
+  useEffect(() => {
+    fetch("/public/addressData/country.json")
+      .then((res) => res.json())
+      .then((data) => setCountry(data));
+  }, []);
+
+  const [stateValue, setStateValue] = useState<string | null>(null);
+  const [state, setState] = useState([]);
+  useEffect(() => {
+    fetch("/public/addressData/state.json")
+      .then((res) => res.json())
+      .then((data) =>
+        setState(
+          data.filter(
+            (item: { countryCode: string }) => item.countryCode === countryValue
+          )
+        )
+      );
+  }, [countryValue]);
+
+
+  const [city, setCity] = useState([]);
+  useEffect(() => {
+    fetch("/public/addressData/city.json")
+      .then((res) => res.json())
+      .then((data) =>
+        setCity(
+          data.filter(
+            (item: { stateCode: string }) => item.stateCode === stateValue
+          )
+        )
+      );
+  }, [stateValue]);
+
+  
+
   const addProperty = (data: FieldValues) => {
     console.log(data);
   };
@@ -31,6 +80,7 @@ const AddProperties = () => {
         <RForm onSubmit={addProperty}>
           <div className="flex gap-5">
             <div className="border rounded-xl p-5 w-[55%]">
+              {/* All inputs */}
               <div className="space-y-5">
                 {/* Basic information */}
                 <div>
@@ -64,7 +114,7 @@ const AddProperties = () => {
                           variant="outlined"
                           label="Listing type"
                           size="small"
-                          values={["sell", "rent"]}
+                          data={listingType}
                           required
                         />
                       </div>
@@ -92,13 +142,7 @@ const AddProperties = () => {
                         variant="outlined"
                         label="Property type"
                         size="small"
-                        values={[
-                          "house",
-                          "apartment",
-                          "villa",
-                          "land",
-                          "commercial area",
-                        ]}
+                        data={propertyType}
                         required
                       />
                     </div>
@@ -185,7 +229,7 @@ const AddProperties = () => {
                         variant="outlined"
                         label="Furnishing Status"
                         size="small"
-                        values={["furnished", "semi-furnished", "unfurnished"]}
+                        data={furnishingStatus}
                         required
                       />
                     </div>
@@ -211,7 +255,8 @@ const AddProperties = () => {
                         variant="outlined"
                         label="Country"
                         size="small"
-                        values={["furnished", "semi-furnished", "unfurnished"]}
+                        data={country}
+                        setLocalValue={setCountryValue}
                         required
                       />
                     </div>
@@ -225,11 +270,8 @@ const AddProperties = () => {
                           variant="outlined"
                           label="State"
                           size="small"
-                          values={[
-                            "furnished",
-                            "semi-furnished",
-                            "unfurnished",
-                          ]}
+                          data={state}
+                          setLocalValue={setStateValue}
                           required
                         />
                       </div>
@@ -241,27 +283,19 @@ const AddProperties = () => {
                           variant="outlined"
                           label="City"
                           size="small"
-                          values={[
-                            "furnished",
-                            "semi-furnished",
-                            "unfurnished",
-                          ]}
+                          data={city}
                           required
                         />
                       </div>
                       {/* Input 1 */}
                       <div className="w-full">
-                        <RSelect
+                      <RInput
                           type="text"
                           name="location.postalCode"
+                          placeholder="Enter zip code"
                           variant="outlined"
-                          label="Postal code"
+                          label="Zip code"
                           size="small"
-                          values={[
-                            "furnished",
-                            "semi-furnished",
-                            "unfurnished",
-                          ]}
                           required
                         />
                       </div>
@@ -275,6 +309,55 @@ const AddProperties = () => {
                           label="Street address"
                           size="small"
                           required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Property additional features information */}
+                <div>
+                  <Typography variant="subtitle1">
+                    <span className="font-semibold">Additonal Features</span>
+                  </Typography>
+                  <div className="my-5">
+                    <Divider />
+                  </div>
+
+                  {/* Property features input */}
+                  <div className="space-y-5">
+                    <div className="grid grid-cols-3 gap-5">
+                      {/* Input 1 */}
+                      <div className="w-full">
+                        <RSelect
+                          type="text"
+                          name="additionalFeatures.amenities"
+                          variant="outlined"
+                          label="Amenities"
+                          size="small"
+                          data={amenities}
+                        />
+                      </div>
+                      {/* Input 2 */}
+                      <div className="w-full">
+                        <RSelect
+                          type="text"
+                          name="additionalFeatures.nearbyFacilities"
+                          variant="outlined"
+                          label="Nearby facilities"
+                          size="small"
+                          data={nearbyFacilities}
+                        />
+                      </div>
+                      {/* Input 3 */}
+                      <div className="w-full">
+                        <RSelect
+                          type="text"
+                          name="additionalFeatures.propertyCondition"
+                          variant="outlined"
+                          label="Condition"
+                          size="small"
+                          data={condition}
                         />
                       </div>
                     </div>
@@ -313,7 +396,7 @@ const AddProperties = () => {
                           variant="outlined"
                           label="Negotiable"
                           size="small"
-                          values={["yes", "no"]}
+                          data={negotiable}
                           required
                         />
                       </div>
@@ -325,11 +408,7 @@ const AddProperties = () => {
                           variant="outlined"
                           label="Payment option"
                           size="small"
-                          values={[
-                            "furnished",
-                            "semi-furnished",
-                            "unfurnished",
-                          ]}
+                          data={paymentOption}
                           required
                         />
                       </div>
@@ -348,6 +427,7 @@ const AddProperties = () => {
                 </Typography>
               </button>
             </div>
+
             <div className="w-[45%] rounded-2xl overflow-hidden border border-dashed p-1 h-fit">
               <img className="rounded-2xl" src={property} alt="" />
             </div>
